@@ -1,0 +1,1 @@
+df_test = pd.read_csv('intermediate.csv', sep=';')
