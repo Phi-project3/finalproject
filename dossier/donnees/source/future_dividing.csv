@@ -1,11 +1,40 @@
-100 GRAMMES CO2-eq;Mariko;;Jonna;;Milla;;Ilyas
-;One-dish meals,283;;Milk and yogurt,363;;Biscuits and cakes,382;;Sweets,510
-;Dressings and sauces,189;;Cheese,194;;Bread,251;;Dairy desserts,279
-;Cereals,162;;Meat,169;;Chocolate products,176;;Breakfast cereals,185
-;Plant-based milk substitutes,113;;Processed meat,128;;Ice cream,131;;Sweetened beverages,148
-;Unsweetened beverages,69;;Alcoholic beverages,80;;Artificially sweetened beverages,83;;Vegetables,92
-;Appetizers,64;;Salty and fatty products,61;;Fish and seafood,65;;Fats,68
-;Fruit juices,42;;Legumes,46;;Fruits,53;;Pizza pies and quiches,59
-;Potatoes,28;;Waters and flavored waters,25;;Eggs,31;;Nuts,36
-;Teas and herbal teas and coffees,12;;Dried fruits,20;;Soups,24;;Sandwiches,24
-;;;Fruit nectars,1;;;;Pastries,4
+pnns_groups_2,count
+unknown,8484
+Sweets,510
+Biscuits and cakes,382
+Milk and yogurt,363
+One-dish meals,283
+Dairy desserts,279
+Bread,251
+Cheese,194
+Dressings and sauces,189
+Breakfast cereals,185
+Chocolate products,176
+Meat,169
+Cereals,162
+Sweetened beverages,148
+Ice cream,131
+Processed meat,128
+Plant-based milk substitutes,113
+Vegetables,92
+Artificially sweetened beverages,83
+Alcoholic beverages,80
+Unsweetened beverages,69
+Fats,68
+Fish and seafood,65
+Appetizers,64
+Salty and fatty products,61
+Pizza pies and quiches,59
+Fruits,53
+Legumes,46
+Fruit juices,42
+Nuts,36
+Eggs,31
+Potatoes,28
+Waters and flavored waters,25
+Sandwiches,24
+Soups,24
+Dried fruits,20
+Teas and herbal teas and coffees,12
+Pastries,4
+Fruit nectars,1
