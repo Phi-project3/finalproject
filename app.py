@@ -1,6 +1,6 @@
 import os
 import urllib
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from sqlalchemy import create_engine, text
 
 app = Flask(__name__)
@@ -35,6 +35,19 @@ def query_soups():
         # Convert each row to a dictionary using its _mapping attribute
         records = [dict(row._mapping) for row in result.fetchall()]
     return render_template('results.html', records=records)
+
+@app.route('/search', methods=['GET', 'POST'])
+def search():
+    if request.method == 'POST':
+        search_term = request.form.get('search_term')
+        # Use a parameterized query with LIKE operator:
+        query = text("SELECT * FROM [dbo].[my_table] WHERE product_name LIKE :term")
+        with engine.connect() as conn:
+            result = conn.execute(query, {"term": f"%{search_term}%"})
+            records = [dict(row._mapping) for row in result.fetchall()]
+        return render_template('search_results.html', records=records, search_term=search_term)
+    # For GET requests, simply show the search form
+    return render_template('search.html')
 
 @app.route('/omg')
 def page2():
