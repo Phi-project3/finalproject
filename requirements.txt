@@ -1,6 +1,6 @@
 Flask==3.1.0
 pandas==2.2.3
+SQLAlchemy==2.0.40
 gunicorn
-SQLAlchemy
 pyodbc
 urllib
