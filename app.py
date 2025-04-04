@@ -49,6 +49,21 @@ def search():
     # For GET requests, simply show the search form
     return render_template('search.html')
 
+@app.route('/product/<code>')
+def product_details(code):
+    query = text("SELECT * FROM [dbo].[my_table] WHERE code = :code")
+    with engine.connect() as conn:
+        result = conn.execute(query, {"code": code})
+        product = result.fetchone()
+
+        # Convert the row to a dictionary if a product is found
+        if product:
+            product = dict(product._mapping)
+        else:
+            product = None
+
+    return render_template('product_details.html', product=product)
+
 @app.route('/omg')
 def page2():
     return render_template('omg.html')

@@ -15,8 +15,10 @@
       box-sizing: border-box;
       text-align: center;
       overflow: hidden;
+      text-decoration: none;
+      color: black;
     }
-    /* Optional: Add a hover effect */
+
     .square:hover {
       background-color: #f0f0f0;
     }
@@ -27,10 +29,10 @@
   <div>
     {% if records %}
       {% for record in records %}
-        <div class="square">
+        <!-- The entire anchor is styled as a "square" -->
+        <a href="{{ url_for('product_details', code=record.code) }}" class="square">
           <h3>{{ record.product_name }}</h3>
-          <!-- Add other fields as needed -->
-        </div>
+        </a>
       {% endfor %}
     {% else %}
       <p>No results found.</p>
