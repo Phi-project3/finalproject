@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Food Sustainability Search</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <h1 class="text-center">🌱 Sustainability Food Search</h1>
+        
+        <form method="GET" class="text-center my-3">
+            <input type="text" name="search" class="form-control w-50 d-inline" placeholder="Search for a product...">
+            <button type="submit" class="btn btn-success">🔍 Search</button>
+        </form>
+        
+        <div class="row">
+            {% for product in products %}
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{{ product.image_url }}" class="card-img-top" alt="{{ product.name }}">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p>🌍 Score: {{ product.sustainability_score }}/100</p>
+                        <a href="{{ url_for('product_detail', product_id=product.id) }}" class="btn btn-primary">View More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
