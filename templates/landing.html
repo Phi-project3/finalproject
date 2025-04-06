@@ -3,8 +3,11 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        
         {% extends "base.html" %}
+
         <title>{% block title %}Sustainabite{% endblock %}</title>
+
         {% block extra_css %}
             <link rel="stylesheet" href="{{ url_for('static', filename='landing_style.css') }}">
         {% endblock %}
