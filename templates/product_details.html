@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Details</title>
+  <style>
+    .detail-row {
+      margin: 5px 0;
+    }
+    .detail-label {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  {% if product %}
+    <h1>Details for {{ product.product_name }}</h1>
+    <div class="detail-row">
+      <span class="detail-label">Code:</span> {{ product.code }}
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Quantity:</span> {{ product.quantity }}
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Packaging:</span> {{ product.packaging_en }}
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Brands:</span> {{ product.brands_en }}
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Categories:</span> {{ product.categories_en }}
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Origins:</span> {{ product.origins_en }}
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Labels:</span> {{ product.labels_en }}
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Countries:</span> {{ product.countries_en }}
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Nutriscore Grade:</span> {{ product.nutriscore_grade }}
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">PNNS Group 1:</span> {{ product.pnns_groups_1 }}
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">PNNS Group 2:</span> {{ product.pnns_groups_2 }}
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Food Groups:</span> {{ product.food_groups_en }}
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Environmental Score:</span> {{ product.environmental_score_score }}
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Environmental Grade:</span> {{ product.environmental_score_grade }}
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Main Category:</span> {{ product.main_category_en }}
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Carbon Footprint (100g):</span> {{ product["carbon-footprint_100g"] }}
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Carbon Footprint (meat/fish):</span> {{ product["carbon-footprint-from-meat-or-fish_100g"] }}
+    </div>
+  {% else %}
+    <h1>No product found!</h1>
+  {% endif %}
+  <br>
+  <a href="/">Back to Homepage</a>
+</body>
+</html>
