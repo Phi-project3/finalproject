@@ -42,12 +42,14 @@ def about():
     return render_template('about.html')
 
 @app.route('/query-chocolate')
-def query_soups():
+def query_chocolate():
     query = text("SELECT * FROM [dbo].[my_table] WHERE pnns_groups_2 = :group")
-    with engine.connect() as conn:
-        result = conn.execute(query, {"group": "Chocolate products"})
+
+    with engine.connect() as connection:
+        result = connection.execute(query, {"group": "Chocolate products"})
         # Convert each row to a dictionary using its _mapping attribute
         records = [dict(row._mapping) for row in result.fetchall()]
+        
     return render_template('results.html', records=records)
 
 
