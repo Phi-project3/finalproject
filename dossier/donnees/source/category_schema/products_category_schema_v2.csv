@@ -1,0 +1,77 @@
+﻿source_product_category;category_name;kg_CO2_min;kg_CO2_max;average
+Beers (ciders, long drinks);Alcoholic beverages;0.50;0.80;0.65
+Juices and seasonal drinks;Fruit juices;0.60;1.30;0.95
+Juices and seasonal drinks;Fruit nectars;0.60;1.30;0.95
+Soft drinks and energy drinks;Unsweetened beverages;0.10;1.00;0.55
+Soft drinks and energy drinks;Artificially sweetened beverages;0.10;1.00;0.55
+Soft drinks and energy drinks;Sweetened beverages;0.10;1.00;0.55
+Coffee;;2.00;9.00;5.50
+Instant coffee;;6.90;17.00;11.95
+Tea;Teas and herbal teas and coffees;2.60;21.00;11.80
+Cocoa;;0.30;2.80;1.55
+Milk;Milk and Yogurt;0.90;1.20;1.05
+Milk;Milk;0.90;1.20;1.05
+Dairy products;Dairy desserts;1.10;3.00;2.05
+Cheeses;Cheese;7.50;16.60;12.05
+Fresh cheeses;Cream cheese;4.30;10.10;7.20
+Yogurts;Yogurt;1.10;1.70;1.40
+Oils;;0.50;4.70;2.60
+Butter and spreads;Fats;1.10;11.00;6.05
+Eggs;Eggs;2.70;;2.70
+Plant-based alternatives for milk and dairy products;Plant-based milk substitutes;0.30;1.50;0.90
+Salads;;0.20;2.70;1.45
+Cabbages;;0.30;0.60;0.45
+Tomatoes and cucumbers;;0.10;3.00;1.55
+Other vegetables;Legumes;0.10;3.00;1.55
+Other vegetables;Vegetables;0.10;3.00;1.55
+Onion;;0.10;0.40;0.25
+Banana;;0.30;1.10;0.70
+Citrus fruits, apples, and pears;;0.10;1.20;0.65
+Other fruits;Fruits;0.30;1.70;1.00
+Berries;;0.70;2.70;1.70
+Root vegetables;Potatoes;0.10;0.30;0.20
+Peas, beans, and lentils;;0.30;2.10;1.20
+Sugar and Honey;Sugar and Honey;0.66;1.66;1.16
+Mushrooms;;0.10;4.20;2.15
+Processed meat products;Processed meat;0.30;26.00;13.15
+Ready-made meals and convenience foods;One-dish meals;1.20;4.70;2.95
+Ready-made meals and convenience foods;Soups;1.20;4.70;2.95
+Ready-made meals and convenience foods;Pizza pies and quiches;1.20;4.70;2.95
+Ready-made meals and convenience foods;Sandwiches;1.20;4.70;2.95
+Chicken (incl. marinated), (chicken and turkey);Poultry;2.80;4.00;3.40
+Beef;Meat;36.00;46.00;43.33
+Beef;Beef;36.00;46.00;43.33
+Pork (incl. marinated);Pork;3.60;6.90;5.25
+Fresh fish;;0.30;5.00;2.65
+Wild-caught domestic fish, average;;0.40;2.70;1.55
+Farmed domestic fish;;3.70;8.90;6.30
+Herring, foreign, wild-caught;;2.00;6.40;4.20
+Salmon and trout, foreign, farmed;;4.10;6.70;5.40
+Processed fish products, shellfish, mollusks;Fish and seafood;1.90;15.00;8.45
+Protein products containing milk and eggs;;2.60;6.10;4.35
+Protein snacks and drinks;Protein snacks and drinks;1.48;7.85;4.67
+Vegan plant-based proteins;;0.80;2.50;1.65
+Canned food;Canned food;1.96;9.30;5.63
+Lamb meat;;14.00;37.00;25.50
+Bread, biscuits, and pastries;Biscuits and cakes;0.50;4.50;2.50
+Bread, biscuits, and pastries;Bread;0.50;4.50;2.50
+Bread, biscuits, and pastries;Pastries;0.50;4.50;2.50
+Chips and snacks;Appetizers;1.70;2.50;2.10
+Chips and snacks;Salty and fatty products;1.70;2.50;2.10
+Nuts and seeds;Dried fruits;0.60;5.20;2.90
+Nuts and seeds;Nuts;0.60;5.20;2.90
+Chocolate and other sweets;Sweets;1.70;4.20;2.95
+Chocolate and other sweets;Chocolate products;1.70;4.20;2.95
+Ice cream;Ice cream;1.90;3.30;2.60
+Cereals (and muesli);Cereals;2.20;3.10;2.65
+Cereals (and muesli);Breakfast cereals;2.20;3.10;2.65
+Pasta (and wheat noodles);;0.80;1.00;0.90
+Rice (and rice noodles);;1.80;3.80;2.80
+Flours and grains;;0.70;1.80;1.25
+Cut flowers;;0.40;8.50;4.45
+Baby food;;0.30;5.60;2.95
+Infant formula, ready-made formulas;;2.00;;2.00
+Infant formula, powdered formulas;;7.10;11.00;9.05
+Children's porridges and gruels;;0.80;2.40;1.60
+https://myemissions.co/resources/food-carbon-footprint-calculator/;Dressings and sauces;;;4.607
+https://myemissions.co/resources/food-carbon-footprint-calculator/;Waters and flavored waters;;;0.0315
