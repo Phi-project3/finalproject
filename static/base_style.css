@@ -1,0 +1,109 @@
+@font-face {
+    font-family: 'Sustainabite';
+    src: url('/static/Nature Impact Demo.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+@font-face {
+    font-family: 'Sustainabite_vogue';
+    src: url('/static/Vogue.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+@font-face {
+    font-family: 'Sustainabite_foodprint';
+    src: url('/static/josephsophia.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+html {
+  background-color: #f5f5f5;
+}
+
+header {
+  border-bottom: 3px dotted;
+  border-color: rgb(8, 171, 8);
+  width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+}
+
+footer {
+  border-top: 3px dotted;
+  border-color: rgb(8, 171, 8);
+  width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+  text-shadow: 1px 1px 3px rgb(113, 235, 139);
+}
+
+a {
+  text-decoration: none;
+  font-style: italic;
+  font-family: Arial;
+}
+
+
+#main_title {
+    color: rgb(8, 171, 8);
+    font-family: 'Sustainabite_vogue';
+    font-weight: lighter;
+    font-size: 3em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+#second_title {
+    color: rgb(8, 171, 8);
+    font-family: 'Sustainabite_foodprint';
+    font-weight: lighter;
+    font-size: 1.8em;
+    margin-top: 10px;
+    font-style: italic;
+  }
+
+  #main_image {
+    height: 100px;
+    width: auto;
+  }
+  
+  @media (max-width: 1200px) {
+    #main_image {
+      height: 70px;
+    }
+    #main_title {
+      color: rgb(8, 171, 8);
+      font-family: 'Sustainabite_vogue';
+      font-weight: lighter;
+      font-size: 2em;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    #second_title {
+      color: rgb(8, 171, 8);
+      font-family: 'Sustainabite_foodprint';
+      font-weight: lighter;
+      font-size: 1.2em;
+      margin-top: 10px;
+      font-style: italic;
+    }
+    header {
+      border-bottom: 3px dotted;
+      border-color: rgb(8, 171, 8);
+      width: 600px;
+      margin: 0 auto; /* centers the div */
+    }
+  }
+
+.buttons {
+    padding: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}

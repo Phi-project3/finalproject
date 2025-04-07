@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Base Page for Header and Footer{% endblock %}</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='base_style.css') }}">
+        {% block extra_css %}{% endblock %}
+    </head>
+
+    <body>
+        <header>
+
+            <div>
+                <img id= "main_image" src="{{ url_for('static', filename='sustainabite_trans.png') }}" alt="Sustainabite Logo">
+            </div>
+
+            <h1 id="main_title">S U S T A I N A B I T E</h1>
+
+            <h2 id="second_title">oodprinmatter</h2>
+
+            <a href="{{ url_for('landing') }}">
+                <button class="buttons">🏠 Home</button>
+            </a>
+
+            <form action="{{ url_for('search') }}" method="POST" style="display: inline-block; margin-right: 15px;">
+                <input type="text" name="search_term" placeholder="Looking for some product?" required>
+                <button class="buttons" type="submit">🔎 Search</button>
+            </form>
+
+            <a href="{{ url_for('scan') }}">
+                <button class="buttons">📷 Scan Me!</button>
+            </a>
+
+            <a href="{{ url_for('about') }}">
+                <button class="buttons">🤝 About the Team</button>
+            </a>
+
+        </header>
+
+        <main style="margin: 20px;">
+            {% block content %}
+
+            <!-- Child templates will insert their content here -->
+
+            {% endblock %}
+        </main>
+
+        <footer>
+            <p>
+                <a href="/teamphi">&copy; Team Phi</a>
+            </p>
+        </footer>
+        
+    </body>
+</html>
