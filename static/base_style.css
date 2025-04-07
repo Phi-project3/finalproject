@@ -64,6 +64,7 @@ a {
     font-weight: lighter;
     font-size: 1.8em;
     margin-top: 10px;
+    margin-bottom: 50px;
     font-style: italic;
   }
 
@@ -101,9 +102,29 @@ a {
   }
 
 .buttons {
-    padding: 10px;
-    padding-right: 20px;
-    padding-left: 20px;
-    margin-left: 10px;
-    margin-right: 10px;
+    background: linear-gradient(0deg, #4CAF50, #81C784);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    margin: 3px 3px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+input {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.buttons:hover {
+  background: linear-gradient(45deg, #388E3C, #66BB6A);
+  transform: translateY(-2px);
+}
+
+.buttons:active {
+  transform: translateY(0);
 }
