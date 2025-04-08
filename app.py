@@ -26,6 +26,7 @@ engine = create_engine("mssql+pyodbc:///?odbc_connect=%s" % params)
 def home():
     return render_template('index.html')
 
+
 @app.route('/landing')
 def landing():
     return render_template('landing.html')
