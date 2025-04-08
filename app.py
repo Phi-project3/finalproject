@@ -31,13 +31,30 @@ def home():
 def landing():
     return render_template('landing.html')
 
+@app.route('/test')
+def test():
+    return render_template('jonnas_test.html')
+
 @app.route('/scan')
 def scan():
     return render_template('barcode_scan.html')
 
-@app.route('/search')
+@app.route('/search', methods=['POST'])
 def search():
-    return render_template('search.html')
+    search_term = request.form.get('search_term')
+
+    query = text("""
+                 SELECT *
+                 FROM [dbo].[sustainabite]
+                 WHERE "Product name" LIKE :term
+                 """)
+
+    with engine.connect() as connection:
+        result = connection.execute(query, {"term": f"%{search_term}%"})
+
+        records = [dict(row._mapping) for row in result.fetchall()]
+        
+    return render_template('search.html', records=records, search_term=search_term)
 
 @app.route('/about')
 def about():
@@ -72,6 +89,19 @@ def add_to_cart(product_code):
 def view_cart():
     cart = session.get('cart', {})
     return render_template('cart.html', cart=cart)
+
+@app.route('/query-alcohol')
+def query_alcohol():
+    with engine.connect() as connection:
+        result = connection.execute(text("""
+                                         SELECT *
+                                         FROM [dbo].[sustainabite]
+                                         WHERE "Product group" = 'Alcoholic beverages'
+                                         """))
+
+        records = [dict(row._mapping) for row in result.fetchall()]
+        
+    return render_template('results.html', records=records)
 
 @app.route('/teamphi')
 def page3():

@@ -6,6 +6,13 @@
   }
 
 @font-face {
+    font-family: 'Sustainabite_logo';
+    src: url('static/Dosis-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+@font-face {
     font-family: 'Sustainabite_vogue';
     src: url('/static/Vogue.ttf') format('truetype');
     font-weight: normal;

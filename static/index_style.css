@@ -6,6 +6,13 @@
 }
 
 @font-face {
+  font-family: 'Sustainabite_logo';
+  src: url('/static/Dosis-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'Sustainabite_vogue';
   src: url('/static/Vogue.ttf') format('truetype');
   font-weight: normal;
@@ -20,9 +27,9 @@
 }
 
 #main_title {
-  color: rgb(8, 171, 8);
-  font-family: 'Sustainabite_vogue';
-  font-weight: lighter;
+  color: rgb(11, 133, 11);
+  font-family: 'Sustainabite_logo';
+  font-weight: normal;
   font-size: 5em;
   margin-top: 50px;
   margin-bottom: 10px;
@@ -37,6 +44,25 @@
   font-style: italic;
 }
 
+.wobble {
+  width: 200px;
+  animation: wobble 1.5s infinite ease-in-out;
+}
+
+@keyframes wobble {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: rotate(3deg);
+  }
+}
 
 #main_image {
   height: 300px;
