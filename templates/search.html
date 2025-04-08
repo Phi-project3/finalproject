@@ -4,18 +4,37 @@
     <head>
         <meta charset="UTF-8">
         {% extends "base.html" %}
-        <title>{% block title %}Barcode Scan{% endblock %}</title>
-        {% block extra_css %}
 
+        <title>{% block title %}Results for "{{ search_term }}"{% endblock %}</title>
+
+        {% block extra_css %}
+            <link rel="stylesheet" href="{{ url_for('static', filename='search_style.css') }}">
         {% endblock %}
+
     </head>
 
     <body>
 
         {% block content %}
 
-        <h1 style="text-align: center; padding: 10%;">In Progress...</h1>
-        
+            <h1 id="main_search_title">Results for « {{ search_term }} »</h1>
+
+            <div class="squares-container">
+                {% if records %}
+
+                    {% for record in records %}
+                        
+                        <h2 class="square">{{ record["Product name"] }}</h3>
+
+                    {% endfor %}
+
+                {% else %}
+
+                    <h1 id="no_results">No results found 😭 <br> I'm gonna cry...</h1>
+
+                {% endif %}
+            </div>
+
         {% endblock %}
     </body>
 </html>
