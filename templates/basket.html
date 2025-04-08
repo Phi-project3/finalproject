@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Basket</title>
+    <style>
+        .basket-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            font-family: Calibri;
+        }
+
+        .basket-item {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+            align-items: center;
+        }
+
+        .total-line {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
+            text-align: right;
+        }
+
+        .quantity-input {
+            width: 60px;
+        }
+
+        .action-btn {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .remove-btn {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        .update-btn {
+            background-color: #27ae60;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="basket-container">
+        <h1>🧺 Your Basket</h1>
+        <div id="basket-items"></div>
+        <div class="total-line" id="total-carbon">Total Carbon Footprint: 0 kg CO₂e</div>
+    </div>
+
+    <script>
+        async function loadBasket() {
+            const response = await fetch('/api/basket');
+            const data = await response.json();
+            const items = data.items;
+
+            const container = document.getElementById('basket-items');
+            container.innerHTML = '';
+
+            let totalFootprint = 0;
+
+            items.forEach(item => {
+                const subtotal = item.quantity * item.carbonFootprint;
+                totalFootprint += subtotal;
+
+                const div = document.createElement('div');
+                div.className = 'basket-item';
+                div.innerHTML = `
+                    <div><strong>${item.productName}</strong></div>
+                    <div>${item.environmentalScore}</div>
+                    <div>${item.carbonFootprint} kg CO₂e</div>
+                    <div>
+                        <input type="number" class="quantity-input" value="${item.quantity}" min="1" data-barcode="${item.barcode}">
+                    </div>
+                    <div>
+                        <button class="action-btn update-btn" onclick="updateItem('${item.barcode}')">Update</button>
+                        <button class="action-btn remove-btn" onclick="removeItem('${item.barcode}')">Remove</button>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+
+            document.getElementById('total-carbon').textContent = `Total Carbon Footprint: ${totalFootprint.toFixed(2)} kg CO₂e`;
+        }
+
+        async function updateItem(barcode) {
+            const input = document.querySelector(`input[data-barcode="${barcode}"]`);
+            const quantity = parseInt(input.value);
+
+            await fetch('/api/basket/add', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ barcode, quantity })
+            });
+
+            loadBasket(); // Refresh
+        }
+
+        async function removeItem(barcode) {
+            await fetch('/api/basket/remove', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ barcode })
+            });
+
+            loadBasket(); // Refresh
+        }
+
+        loadBasket();
+    </script>
+</body>
+</html>

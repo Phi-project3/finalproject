@@ -27,8 +27,42 @@
   font-style: normal;
 }
 
+.basket-button {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background-color: #34c759;
+  font-family: Calibri;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: lighter;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s ease-in-out;
+  z-index: 999;
+}
 
+.basket-button:hover {
+  background-color: #28a745;
+}
 
+.basket-icon {
+  font-size: 20px;
+}
+
+.basket-count {
+  background-color: red;
+  font-family: Calibri;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
 * {
   box-sizing: border-box;
 }
