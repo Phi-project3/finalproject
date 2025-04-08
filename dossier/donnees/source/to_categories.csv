@@ -166,10 +166,10 @@
 640001412756,Cheese
 2386514901964,Cheese
 4056489063032,Cereals
-7340191108882,Canned food
-6410405088383,Canned food
-6410405088420,Canned food
-6410405227041,Canned food
+7340191108882,Canned foods
+6410405088383,Canned foods
+6410405088420,Canned foods
+6410405227041,Canned foods
 2396295302997,Beef
 6410405220097,Beef
 8722700771401,Beef
@@ -374,15 +374,15 @@
 6410405118455,Yogurt
 6410405156037,Yogurt
 6410405049834,Yogurt
-20043032, Chocolate products
+20043032,Chocolate products
 6416710060069,Cereals
 6410381090561,Appetizers
 6410405223944,Cheese
 6430013257872,Appetizers
 6410381086588,Appetizers
-6409531659567,Canned food
+6409531659567,Canned foods
 6409460002977,One-dish meals
-6410405321558,Canned food
+6410405321558,Canned foods
 6429830030614,One-dish meals
 8690661079532,Dressings and sauces
 6405304003407,One-dish meals
@@ -398,7 +398,7 @@ B7350068600241,Breakfast cereals
 6430043245047,One-dish meals
 6430060430839,One-dish meals
 6430060430853,One-dish meals
-6409531659413,Canned food
+6409531659413,Canned foods
 6411020002921,Teas and herbal teas and coffee
 6413446012225,Teas and herbal teas and coffee
 6410405179586,Fruit juices
@@ -429,10 +429,10 @@ B7350068600241,Breakfast cereals
 6411020001450,Teas and herbal teas and coffee
 6415130028505,Fruit juices
 6428300019302,Teas and herbal teas and coffee
-6409531659796,Canned food
-6410400035993,Canned food
+6409531659796,Canned foods
+6410400035993,Canned foods
 6409054506003,One-dish meals
-6409531659406,Canned food
+6409531659406,Canned foods
 6408430046690,Milk and yogurt
 5711953131462,Milk and yogurt
 6415712502225,Sweetened beverages
@@ -442,10 +442,10 @@ B7350068600241,Breakfast cereals
 6408430001323,Milk and yogurt
 20885472,Sweetened beverages
 6430052989550,Sweetened beverages
-6410405075826,Canned food
-6420260850100,Canned food
-6420260850551,Canned food
-8008455007089,Canned food
+6410405075826,Canned foods
+6420260850100,Canned foods
+6420260850551,Canned foods
+8008455007089,Canned foods
 20196950,One-dish meals
 6410405179586,Fruit juices
 6415130041474,Fruit juices
@@ -690,7 +690,7 @@ B7350068600241,Breakfast cereals
 6411550024943,Pastries
 6411550032924,Pastries
 6413467524103,Pastries
-6416627005191,pastries
+6416627005191,Pastries
 6424200063513,Pastries
 6430036731250,Pastries
 6430047632492,Pastries
@@ -811,7 +811,7 @@ B7350068600241,Breakfast cereals
 6406300011311,Processed meat
 6409100050993,Processed meat
 6407800020650,Processed meat
-6414893389243,Proteiini snacks and drinks
+6414893389243,Protein snacks and drinks
 4002971277005,Protein snacks and drinks
 5060221208789,Protein snacks and drinks
 6408432000751,Protein snacks and drinks
@@ -980,7 +980,7 @@ B7350068600241,Breakfast cereals
 6430043243104,Sandwiches
 6415715930728,Soups
 6408430062195,Soups
-5707644531048,Sugar and honey
+5707644531048,Sugar and Honey
 733129172135,Sugar and Honey
 6412324443205,Sugar and Honey
 6430051824777,Sugar and Honey
@@ -999,14 +999,17 @@ B7350068600241,Breakfast cereals
 6430044204166,Sugar and Honey
 6415712900328,Sugar and Honey
 8710437001700,Sugar and Honey
-6413600207160,Sweetened drinks
+6413600207160,Sweetened beverages
 7622210865335,Sweets
 6416554023114,Sweets
 6430050764999,Sweets
-4100290024758,Teas and herbal teas and coffees
-20036850,Teas and herbal teas and coffees
-6417348171608,Teas and herbal teas and coffees
-8718226400376,Teas and herbal teas and coffees
+4100290024758,Teas and herbal teas and coffee
+20036850,Teas and herbal teas and coffee
+6417348171608,Teas and herbal teas and coffee
+8718226400376,Teas and herbal teas and coffee
 5711953042034,Yogurt
 6430057693612,Yogurt
 5701977550530,Yogurt
+6430078530439,Teas and herbal teas and coffee
+5745000625239,Teas and herbal teas and coffee
+7613037666229,Teas and herbal teas and coffee
