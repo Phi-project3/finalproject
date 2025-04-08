@@ -31,6 +31,10 @@ def home():
 def landing():
     return render_template('landing.html')
 
+@app.route('/test')
+def test():
+    return render_template('jonnas_test.html')
+
 @app.route('/scan')
 def scan():
     return render_template('barcode_scan.html')
