@@ -73,6 +73,19 @@ def query_chocolate():
         
     return render_template('results.html', records=records)
 
+@app.route('/query-alcohol')
+def query_alcohol():
+    with engine.connect() as connection:
+        result = connection.execute(text("""
+                                         SELECT *
+                                         FROM [dbo].[sustainabite]
+                                         WHERE "Product group" = 'Alcoholic beverages'
+                                         """))
+
+        records = [dict(row._mapping) for row in result.fetchall()]
+        
+    return render_template('results.html', records=records)
+
 
 @app.route('/teamphi')
 def page3():
