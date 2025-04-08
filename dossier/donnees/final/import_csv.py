@@ -9,7 +9,7 @@ params = urllib.parse.quote_plus(raw_connection_string)
 
 engine = create_engine("mssql+pyodbc:///?odbc_connect=%s" % params)
 
-df = pd.read_csv('C:/code/repos/finalproject/dossier/donnees/intermediate/merged_data.csv')
+df = pd.read_csv('https://raw.githubusercontent.com/Phi-project3/finalproject/refs/heads/main/dossier/donnees/final/sustainabite.csv')
 
 # if_exists="replace" creates the table and replaces it if it exists
-df.to_sql("my_table", con=engine, if_exists="replace", index=False)
+df.to_sql("sustainabite", con=engine, if_exists="replace", index=False)

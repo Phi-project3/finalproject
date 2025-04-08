@@ -44,7 +44,11 @@ def about():
 @app.route('/query-chocolate')
 def query_chocolate():
     with engine.connect() as connection:
-        result = connection.execute(text("SELECT * FROM [dbo].[my_table] WHERE pnns_groups_2 = 'Chocolate products'"))
+        result = connection.execute(text("""
+                                         SELECT *
+                                         FROM [dbo].[sustainabite]
+                                         WHERE "Product group" = 'Chocolate products'
+                                         """))
 
         records = [dict(row._mapping) for row in result.fetchall()]
         
