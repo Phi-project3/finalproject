@@ -36,6 +36,12 @@
                 <button class="buttons">🤝 About the Team</button>
             </a>
 
+            <a href="/basket" class="basket-button">
+                <span class="basket-icon">🧺</span> <!-- can also be replaced 🛒 with 🧺 -->
+                <span id="basket-count" class="basket-count">0</span>
+                <span>Basket</span>
+            </a>
+
         </header>
 
         <main style="margin: 20px;">
@@ -52,5 +58,6 @@
             </p>
         </footer>
         
+        <script src="{{ url_for('static', filename='basket.js') }}"></script> 
     </body>
 </html>

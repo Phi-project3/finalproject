@@ -1,4 +1,72 @@
+
+@import url("https://fonts.googleapis.com/css?family=Cardo:400i|Rubik:400,700&display=swap");
+:root {
+  --d: 700ms;
+  --e: cubic-bezier(0.19, 1, 0.22, 1);
+  --font-sans: "Rubik", sans-serif;
+  --font-serif: "Cardo", serif;
+}
+
+@font-face {
+  font-family: 'Sustainabite_foodprint';
+  src: url('/static/josephsophia.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ticket';
+  src: url('/static/TICKCI__.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Signature';
+  src: url('/static/Autography.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.basket-button {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background-color: #34c759;
+  font-family: Calibri;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: lighter;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s ease-in-out;
+  z-index: 999;
+}
+
+.basket-button:hover {
+  background-color: #28a745;
+}
+
+.basket-icon {
+  font-size: 20px;
+}
+
+.basket-count {
+  background-color: red;
+  font-family: Calibri;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
 /* General styles */
+
 * {
   box-sizing: border-box;
 }
