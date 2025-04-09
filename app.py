@@ -64,7 +64,6 @@ def home():
     return render_template('index.html')
 
 @app.route('/landing')
-@login_required
 def landing():
     return render_template('landing.html')
 
@@ -114,6 +113,30 @@ def add_to_cart(product_code):
 def view_cart():
     cart = session.get('cart', {})
     return render_template('cart.html', cart=cart)
+
+
+@app.route('/product/<code>')
+def product_details(code):
+ 
+    query = text("""
+                 SELECT *
+                 FROM [dbo].[sustainabite]
+                 WHERE Barcode = :code
+                 """)
+   
+    with engine.connect() as connection:
+        result = connection.execute(query, {"code": code})
+ 
+        product = result.fetchone()
+       
+        if product:
+            product = dict(product._mapping)
+        else:
+            product = None
+ 
+    return render_template('product_details.html', product=product)
+
+
 
 
 @app.route('/query-chocolate')
@@ -259,7 +282,7 @@ def login():
         
         if user and user.check_password(password):
             login_user(user)
-            return redirect(url_for('home'))  # Redirect to home page after successful login
+            return redirect(url_for('landing'))  # Redirect to home page after successful login
         else:
             return "Invalid credentials. Please try again."
     
