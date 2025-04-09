@@ -27,7 +27,7 @@
 }
 
 #main_title {
-  color: rgb(11, 133, 11);
+  color: rgb(56, 118, 29);
   font-family: 'Sustainabite_logo';
   font-weight: normal;
   font-size: 5em;
@@ -36,7 +36,7 @@
 }
 
 #second_title {
-  color: rgb(8, 171, 8);
+  color: rgb(56, 118, 29);
   font-family: 'Sustainabite_foodprint';
   font-weight: lighter;
   font-size: 3em;
@@ -170,7 +170,7 @@ html {
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background-color: #f5efe6;
   text-align: center;
 }
 
