@@ -7,14 +7,7 @@
 
 @font-face {
     font-family: 'Sustainabite_logo';
-    src: url('static/Dosis-Bold.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-@font-face {
-    font-family: 'Sustainabite_vogue';
-    src: url('/static/Vogue.ttf') format('truetype');
+    src: url('/static/Dosis-Bold.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
   }
@@ -39,7 +32,7 @@ html {
 
 header {
   border-bottom: 3px dotted;
-  border-color: rgb(8, 171, 8);
+  border-color: rgb(56, 118, 29);
   width: 1200px;
   margin: 0 auto;
   text-align: center;
@@ -48,7 +41,7 @@ header {
 
 footer {
   border-top: 3px dotted;
-  border-color: rgb(8, 171, 8);
+  border-color: rgb(56, 118, 29);
   width: 1200px;
   margin: 0 auto;
   text-align: center;
@@ -92,15 +85,13 @@ a {
       height: 70px;
     }
     #main_title {
-      color: rgb(8, 171, 8);
-      font-family: 'Sustainabite_vogue';
       font-weight: lighter;
       font-size: 2em;
       margin-top: 10px;
       margin-bottom: 10px;
     }
     #second_title {
-      color: rgb(8, 171, 8);
+      color: rgb(56, 118, 29);
       font-family: 'Sustainabite_foodprint';
       font-weight: lighter;
       font-size: 1.2em;
