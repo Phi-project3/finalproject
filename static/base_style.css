@@ -51,7 +51,7 @@ footer {
 
 a {
   text-decoration: none;
-  font-style: italic;
+  /* font-style: italic; */
   font-family: Arial;
 }
 
@@ -75,36 +75,75 @@ a {
     font-style: italic;
   }
 
-  #main_image {
+#main_image {
     height: 100px;
     width: auto;
+}
+
+.basket-button {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background-color: #34c759;
+  font-family: Calibri;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: lighter;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s ease-in-out;
+  z-index: 999;
+}
+
+.basket-button:hover {
+  background-color: #28a745;
+}
+
+.basket-icon {
+  font-size: 20px;
+}
+
+.basket-count {
+  background-color: red;
+  font-family: Calibri;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+  
+@media (max-width: 1200px) {
+  #main_image {
+    height: 70px;
+  }
+
+  #main_title {
+    font-weight: lighter;
+    font-size: 2em;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
   
-  @media (max-width: 1200px) {
-    #main_image {
-      height: 70px;
-    }
-    #main_title {
-      font-weight: lighter;
-      font-size: 2em;
-      margin-top: 10px;
-      margin-bottom: 10px;
-    }
-    #second_title {
-      color: rgb(56, 118, 29);
-      font-family: 'Sustainabite_foodprint';
-      font-weight: lighter;
-      font-size: 1.2em;
-      margin-top: 10px;
-      font-style: italic;
-    }
-    header {
-      border-bottom: 3px dotted;
-      border-color: rgb(8, 171, 8);
-      width: 600px;
-      margin: 0 auto; /* centers the div */
-    }
+  #second_title {
+    color: rgb(56, 118, 29);
+    font-family: 'Sustainabite_foodprint';
+    font-weight: lighter;
+    font-size: 1.2em;
+    margin-top: 10px;
+    font-style: italic;
   }
+  header {
+    border-bottom: 3px dotted;
+    border-color: rgb(8, 171, 8);
+    width: 600px;
+    margin: 0 auto; /* centers the div */
+  }
+}
 
 .buttons {
     background: linear-gradient(180deg, #3EB489, #62D28F);

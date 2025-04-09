@@ -177,7 +177,7 @@ def product_details(code):
         SELECT *
         FROM [dbo].[sustainabite]
         WHERE Barcode = ?
-    """, code)
+    """, (code,))
     
     product = cursor.fetchone()
     
@@ -347,6 +347,160 @@ def logout():
     return redirect(url_for('home'))
 
 # Basket routes
+# @app.route('/api/basket', methods=['GET'])
+# def get_basket():
+#     try:
+#         if 'user_id' not in session:
+#             session['user_id'] = 'anonymous-user'
+        
+#         user_id = session['user_id']
+#         print(f"DEBUG: Getting basket for user: {user_id}")
+        
+#         conn = get_db_connection()
+#         cursor = conn.cursor()
+        
+#         try:
+#             # Get basket ID
+#             cursor.execute("SELECT BasketID FROM ShoppingBasket WHERE UserID = ?", user_id)
+#             basket_row = cursor.fetchone()
+            
+#             if not basket_row:
+#                 print("DEBUG: No basket found for user")
+#                 return jsonify({"items": []})
+            
+#             basket_id = basket_row[0]
+#             print(f"DEBUG: Found basket ID: {basket_id}")
+            
+#             # Get basket items with product details in a single query
+#             query = """
+#                 SELECT 
+#                     bi.Barcode,
+#                     bi.Quantity,
+#                     s.[Product name],
+#                     s.[Environmental score],
+#                     s.[Carbon footprint 1kg]
+#                 FROM BasketItems bi
+#                 INNER JOIN [dbo].[sustainabite] s ON CAST(bi.Barcode AS VARCHAR) = CAST(s.Barcode AS VARCHAR)
+#                 WHERE bi.BasketID = ?
+#             """
+#             cursor.execute(query, basket_id)
+#             rows = cursor.fetchall()
+#             print(f"DEBUG: Found {len(rows)} items")
+            
+#             items = []
+#             for row in rows:
+#                 try:
+#                     item = {
+#                         "barcode": row[0],
+#                         "quantity": row[1],
+#                         "productName": row[2],
+#                         "environmentalScore": float(row[3]) if row[3] is not None else 0,
+#                         "carbonFootprint": float(row[4]) if row[4] is not None else 0
+#                     }
+#                     print(f"DEBUG: Created item: {item}")
+#                     items.append(item)
+#                 except Exception as item_error:
+#                     print(f"DEBUG: Error processing row {row}: {str(item_error)}")
+#                     continue
+            
+#             response = {"items": items}
+#             print(f"DEBUG: Returning response: {response}")
+#             return jsonify(response)
+            
+#         except Exception as inner_error:
+#             print(f"DEBUG: Database error: {str(inner_error)}")
+#             import traceback
+#             traceback.print_exc()
+#             return jsonify({"error": f"Database error: {str(inner_error)}"}), 500
+            
+#         finally:
+#             cursor.close()
+#             conn.close()
+            
+#     except Exception as e:
+#         print(f"DEBUG: Error in get_basket: {str(e)}")
+#         import traceback
+#         traceback.print_exc()
+#         return jsonify({"error": str(e)}), 500
+    
+# @app.route('/api/basket', methods=['GET'])
+# def get_basket():
+#     try:
+#         if 'user_id' not in session:
+#             session['user_id'] = 'anonymous-user'
+        
+#         user_id = session['user_id']
+#         print(f"DEBUG: Getting basket for user: {user_id}")
+        
+#         conn = get_db_connection()
+#         cursor = conn.cursor()
+        
+#         try:
+#             # Get basket ID
+#             cursor.execute("SELECT BasketID FROM ShoppingBasket WHERE UserID = ?", (user_id,))
+#             basket_row = cursor.fetchone()
+            
+#             if not basket_row:
+#                 print("DEBUG: No basket found for user")
+#                 return jsonify({"items": []})
+            
+#             basket_id = basket_row[0]
+#             print(f"DEBUG: Found basket ID: {basket_id}")
+            
+#             # Get basket items with product details
+#             query = """
+#                 SELECT 
+#                     bi.Barcode,
+#                     bi.Quantity,
+#                     s.[Product name],
+#                     s.[Environmental score],
+#                     s.[Carbon footprint 1kg]
+#                 FROM BasketItems bi
+#                 INNER JOIN [dbo].[sustainabite] s 
+#                     ON CAST(bi.Barcode AS VARCHAR) = CAST(s.Barcode AS VARCHAR)
+#                 WHERE bi.BasketID = ?
+#             """
+#             # Pass the basket_id as a tuple
+#             cursor.execute(query, (basket_id,))
+#             rows = cursor.fetchall()
+#             print(f"DEBUG: Found {len(rows)} items")
+            
+#             items = []
+#             for row in rows:
+#                 try:
+#                     item = {
+#                         "barcode": row[0],
+#                         "quantity": row[1],
+#                         "productName": row[2],
+#                         "environmentalScore": float(row[3]) if row[3] is not None else 0,
+#                         "carbonFootprint": float(row[4]) if row[4] is not None else 0
+#                     }
+#                     print(f"DEBUG: Created item: {item}")
+#                     items.append(item)
+#                 except Exception as item_error:
+#                     print(f"DEBUG: Error processing row {row}: {str(item_error)}")
+#                     continue
+            
+#             response = {"items": items}
+#             print(f"DEBUG: Returning response: {response}")
+#             return jsonify(response)
+            
+#         except Exception as inner_error:
+#             print(f"DEBUG: Database error: {str(inner_error)}")
+#             import traceback
+#             traceback.print_exc()
+#             return jsonify({"error": f"Database error: {str(inner_error)}"}), 500
+            
+#         finally:
+#             cursor.close()
+#             conn.close()
+            
+#     except Exception as e:
+#         print(f"DEBUG: Error in get_basket: {str(e)}")
+#         import traceback
+#         traceback.print_exc()
+#         return jsonify({"error": str(e)}), 500
+
 @app.route('/api/basket', methods=['GET'])
 def get_basket():
     try:
@@ -361,7 +515,7 @@ def get_basket():
         
         try:
             # Get basket ID
-            cursor.execute("SELECT BasketID FROM ShoppingBasket WHERE UserID = ?", user_id)
+            cursor.execute("SELECT BasketID FROM ShoppingBasket WHERE UserID = ?", (user_id,))
             basket_row = cursor.fetchone()
             
             if not basket_row:
@@ -371,7 +525,7 @@ def get_basket():
             basket_id = basket_row[0]
             print(f"DEBUG: Found basket ID: {basket_id}")
             
-            # Get basket items with product details in a single query
+            # Get basket items with product details
             query = """
                 SELECT 
                     bi.Barcode,
@@ -380,25 +534,57 @@ def get_basket():
                     s.[Environmental score],
                     s.[Carbon footprint 1kg]
                 FROM BasketItems bi
-                INNER JOIN [dbo].[sustainabite] s ON CAST(bi.Barcode AS VARCHAR) = CAST(s.Barcode AS VARCHAR)
+                INNER JOIN [dbo].[sustainabite] s 
+                    ON CAST(bi.Barcode AS VARCHAR) = CAST(s.Barcode AS VARCHAR)
                 WHERE bi.BasketID = ?
             """
-            cursor.execute(query, basket_id)
+            cursor.execute(query, (basket_id,))
             rows = cursor.fetchall()
             print(f"DEBUG: Found {len(rows)} items")
             
             items = []
             for row in rows:
                 try:
+                    # Handle 'environmental score' which may be numeric, None, or "No information available"
+                    env_score_val = row[3]
+                    if env_score_val is None:
+                        environment_score = 0.0
+                    elif isinstance(env_score_val, (int, float)):
+                        environment_score = float(env_score_val)
+                    elif (
+                        isinstance(env_score_val, str) 
+                        and env_score_val.lower() == "no information available"
+                    ):
+                        # Substituting 0 if there's "No information available"
+                        environment_score = 0.0
+                    else:
+                        # Some other string or unexpected type
+                        environment_score = 0.0
+
+                    # Handle carbon footprint similarly
+                    carbon_val = row[4]
+                    if carbon_val is None:
+                        carbon_footprint = 0.0
+                    elif isinstance(carbon_val, (int, float)):
+                        carbon_footprint = float(carbon_val)
+                    elif (
+                        isinstance(carbon_val, str) 
+                        and carbon_val.lower() == "no information available"
+                    ):
+                        carbon_footprint = 0.0
+                    else:
+                        carbon_footprint = float(carbon_val)  # or fallback to 0.0
+
                     item = {
                         "barcode": row[0],
                         "quantity": row[1],
                         "productName": row[2],
-                        "environmentalScore": float(row[3]) if row[3] is not None else 0,
-                        "carbonFootprint": float(row[4]) if row[4] is not None else 0
+                        "environmentalScore": environment_score,
+                        "carbonFootprint": carbon_footprint
                     }
                     print(f"DEBUG: Created item: {item}")
                     items.append(item)
+
                 except Exception as item_error:
                     print(f"DEBUG: Error processing row {row}: {str(item_error)}")
                     continue
@@ -423,6 +609,9 @@ def get_basket():
         traceback.print_exc()
         return jsonify({"error": str(e)}), 500
 
+
+
+
 @app.route('/api/basket/add', methods=['POST'])
 def add_to_basket():
     try:
@@ -442,7 +631,7 @@ def add_to_basket():
         
         try:
             # First verify the product exists in sustainabite table
-            cursor.execute("SELECT [Product name] FROM [dbo].[sustainabite] WHERE Barcode = ?", barcode)
+            cursor.execute("SELECT [Product name] FROM [dbo].[sustainabite] WHERE Barcode = ?", (barcode,))
             product = cursor.fetchone()
             if not product:
                 return jsonify({
@@ -451,7 +640,7 @@ def add_to_basket():
                 }), 404
             
             # Get or create basket
-            cursor.execute("SELECT BasketID FROM ShoppingBasket WHERE UserID = ?", user_id)
+            cursor.execute("SELECT BasketID FROM ShoppingBasket WHERE UserID = ?", (user_id,))
             basket_row = cursor.fetchone()
             
             if not basket_row:
@@ -460,7 +649,7 @@ def add_to_basket():
                     INSERT INTO ShoppingBasket (UserID, CreatedDate, LastModified)
                     OUTPUT INSERTED.BasketID
                     VALUES (?, GETDATE(), GETDATE())
-                """, user_id)
+                """, (user_id,))
                 basket_id = cursor.fetchone()[0]
             else:
                 basket_id = basket_row[0]
@@ -470,7 +659,7 @@ def add_to_basket():
             cursor.execute("""
                 SELECT ItemID, Quantity FROM BasketItems 
                 WHERE BasketID = ? AND Barcode = ?
-            """, basket_id, barcode)
+            """, (basket_id, barcode))
             
             item_row = cursor.fetchone()
             
@@ -482,20 +671,20 @@ def add_to_basket():
                 cursor.execute("""
                     UPDATE BasketItems SET Quantity = ?
                     WHERE ItemID = ?
-                """, new_quantity, item_row[0])
+                """, (new_quantity, item_row[0]))
             else:
                 # Add new item
                 print("DEBUG: Adding new item to basket")
                 cursor.execute("""
                     INSERT INTO BasketItems (BasketID, Barcode, Quantity, DateAdded)
                     VALUES (?, ?, ?, GETDATE())
-                """, basket_id, barcode, quantity)
+                """, (basket_id, barcode, quantity))
             
             # Update basket timestamp
             cursor.execute("""
                 UPDATE ShoppingBasket SET LastModified = GETDATE()
                 WHERE BasketID = ?
-            """, basket_id)
+            """, (basket_id,))
             
             conn.commit()
             
@@ -503,7 +692,7 @@ def add_to_basket():
             cursor.execute("""
                 SELECT SUM(Quantity) FROM BasketItems 
                 WHERE BasketID = ?
-            """, basket_id)
+            """, (basket_id,))
             basket_count = cursor.fetchone()[0] or 0
             print(f"DEBUG: New basket count: {basket_count}")
             
@@ -533,14 +722,14 @@ def remove_from_basket():
     cursor = conn.cursor()
 
     # Get basket ID
-    cursor.execute("SELECT BasketID FROM ShoppingBasket WHERE UserID = ?", user_id)
+    cursor.execute("SELECT BasketID FROM ShoppingBasket WHERE UserID = ?", (user_id,))
     basket_row = cursor.fetchone()
 
     if basket_row:
         basket_id = basket_row[0]
         cursor.execute("""
             DELETE FROM BasketItems WHERE BasketID = ? AND Barcode = ?
-        """, basket_id, barcode)
+        """, (basket_id, barcode))
         conn.commit()
 
     return jsonify({"success": True})
@@ -553,13 +742,13 @@ def empty_basket():
 
     try:
         # Get basket ID
-        cursor.execute("SELECT BasketID FROM ShoppingBasket WHERE UserID = ?", user_id)
+        cursor.execute("SELECT BasketID FROM ShoppingBasket WHERE UserID = ?", (user_id,))
         basket_row = cursor.fetchone()
 
         if basket_row:
             basket_id = basket_row[0]
             # Delete all items from the basket
-            cursor.execute("DELETE FROM BasketItems WHERE BasketID = ?", basket_id)
+            cursor.execute("DELETE FROM BasketItems WHERE BasketID = ?", (basket_id,))
             conn.commit()
 
         return jsonify({"success": True})
@@ -587,7 +776,7 @@ def get_basket_count():
         
         try:
             # Get basket ID
-            cursor.execute("SELECT BasketID FROM ShoppingBasket WHERE UserID = ?", user_id)
+            cursor.execute("SELECT BasketID FROM ShoppingBasket WHERE UserID = ?", (user_id,))
             basket_row = cursor.fetchone()
             
             if not basket_row:
@@ -599,7 +788,7 @@ def get_basket_count():
             cursor.execute("""
                 SELECT SUM(Quantity) FROM BasketItems 
                 WHERE BasketID = ?
-            """, basket_id)
+            """, (basket_id,))
             
             count = cursor.fetchone()[0] or 0
             return jsonify({"count": count})
@@ -612,40 +801,40 @@ def get_basket_count():
         print(f"Error in get_basket_count: {str(e)}")
         return jsonify({"error": str(e)}), 500
 
-@app.route('/test_basket_tables')
-def test_basket_tables():
-    try:
-        conn = get_db_connection()
-        cursor = conn.cursor()
+# @app.route('/test_basket_tables')
+# def test_basket_tables():
+#     try:
+#         conn = get_db_connection()
+#         cursor = conn.cursor()
         
-        try:
-            # Test ShoppingBasket table
-            cursor.execute("""
-                SELECT COUNT(*) FROM ShoppingBasket
-            """)
-            basket_count = cursor.fetchone()[0]
+#         try:
+#             # Test ShoppingBasket table
+#             cursor.execute("""
+#                 SELECT COUNT(*) FROM ShoppingBasket
+#             """)
+#             basket_count = cursor.fetchone()[0]
             
-            # Test BasketItems table
-            cursor.execute("""
-                SELECT COUNT(*) FROM BasketItems
-            """)
-            items_count = cursor.fetchone()[0]
+#             # Test BasketItems table
+#             cursor.execute("""
+#                 SELECT COUNT(*) FROM BasketItems
+#             """)
+#             items_count = cursor.fetchone()[0]
             
-            return jsonify({
-                "success": True,
-                "basket_count": basket_count,
-                "items_count": items_count
-            })
+#             return jsonify({
+#                 "success": True,
+#                 "basket_count": basket_count,
+#                 "items_count": items_count
+#             })
             
-        finally:
-            cursor.close()
-            conn.close()
+#         finally:
+#             cursor.close()
+#             conn.close()
             
-    except Exception as e:
-        return jsonify({
-            "success": False,
-            "error": str(e)
-        }), 500
+#     except Exception as e:
+#         return jsonify({
+#             "success": False,
+#             "error": str(e)
+#         }), 500
 
 @app.route('/debug/check_products')
 def debug_check_products():
@@ -662,7 +851,7 @@ def debug_check_products():
                 SELECT [Product name], [Environmental score], [Carbon footprint 1kg]
                 FROM [dbo].[sustainabite]
                 WHERE Barcode = ?
-            """, barcode)
+            """, (barcode,))
             product = cursor.fetchone()
             results[barcode] = {
                 'found': product is not None,
@@ -679,7 +868,7 @@ def debug_check_products():
         
         if basket_row:
             basket_id = basket_row[0]
-            cursor.execute("SELECT Barcode, Quantity FROM BasketItems WHERE BasketID = ?", basket_id)
+            cursor.execute("SELECT Barcode, Quantity FROM BasketItems WHERE BasketID = ?", (basket_id,))
             basket_items = cursor.fetchall()
             results['basket_items'] = [{'barcode': item[0], 'quantity': item[1]} for item in basket_items]
         else:
