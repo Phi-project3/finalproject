@@ -34,7 +34,7 @@
   }
 
 html {
-  background-color: #faf5e8;
+  background-color: #f5efe6;
 }
 
 header {
@@ -64,8 +64,8 @@ a {
 
 
 #main_title {
-    color: rgb(8, 171, 8);
-    font-family: 'Sustainabite_vogue';
+    color: rgb(56, 118, 29);
+    font-family: 'Sustainabite_logo';
     font-weight: lighter;
     font-size: 3em;
     margin-top: 10px;
@@ -73,7 +73,7 @@ a {
   }
   
 #second_title {
-    color: rgb(8, 171, 8);
+    color: rgb(56, 118, 29);
     font-family: 'Sustainabite_foodprint';
     font-weight: lighter;
     font-size: 1.8em;
