@@ -8,7 +8,7 @@
         <title>{% block title %}Product details for "{{ product['Product name'] }}"{% endblock %}</title>
 
         {% block extra_css %}
-            <!-- <link rel="stylesheet" href="{{ url_for('static', filename='product_style.css') }}"> -->
+            <link rel="stylesheet" href="{{ url_for('static', filename='product_style.css') }}">
         {% endblock %}
 
     </head>
@@ -17,23 +17,28 @@
 
         {% block content %}
 
-            <h1 id="main_search_title">Product details for « {{ product['Product name'] }} »</h1>
+            <h1 id="main_product_title">Product details for « {{ product['Product name'] }} »</h1>
+            <div class="container">
+                <div class="detail-row">
+                    <span class="detail-label">Code:</span> {{ product['Barcode'] }}
+                </div>
 
-            <div class="detail-row">
-                <span class="detail-label">Code:</span> {{ product['Barcode'] }}
-            </div>
+                <div class="detail-row">
+                    <span class="detail-label">Brand:</span> {{ product['Brand'] }}
+                </div>
 
-            <div class="detail-row">
-                <span class="detail-label">Brand:</span> {{ product['Brand'] }}
-            </div>
+                <div class="detail-row">
+                    <span class="detail-label">Carbon footprint:</span> {{ product['Carbon footprint 1kg'] }}<span>kg per CO²</span>
+                </div>
 
-            <div class="detail-row">
-                <span class="detail-label">Carbon footprint:</span> {{ product['Carbon footprint 1kg'] }}<span>kg per CO²</span>
-            </div>
+                <div class="detail-row">
+                    <span class="detail-label">Sustainable score:</span> {{ product['Sustainable footprint score'] }}
+                </div>
 
-            <div class="detail-row">
-                <span class="detail-label">Sustainable score:</span> {{ product['Sustainable footprint score'] }}
-            </div>
+                <button class="add-to-basket" data-barcode="{{ product['Barcode'] }}">
+                    Add to Basket
+                </button>
+        </div>
 
         {% endblock %}
     </body>

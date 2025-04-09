@@ -1,0 +1,45 @@
+#main_product_title {
+    text-align: center;
+    font-family: Calibri;
+    color: rgb(8, 171, 8);
+    font-style: italic;
+}
+
+.detail {
+    width: 170px;
+    height: 170px;
+    border: 1px solid #1fb015;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    overflow: hidden;
+    text-decoration: none;
+    background: linear-gradient(180deg, #3EB489, #62D28F);
+    font-family: Calibri;
+    font-weight: normal;
+    color: white;
+    font-size: 1.3em;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+
+.square:hover {
+    background: linear-gradient(180deg, #74E193, #98FF99);
+    transform: translateY(-10px);
+}
+
+.squares:active {
+    transform: translateY(0);
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
