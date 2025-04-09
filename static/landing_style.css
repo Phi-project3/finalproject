@@ -168,14 +168,15 @@ body {
   overflow: hidden;
   padding: 1rem;
   width: 100%;
-  max-width: 300px; /* Set a max-width for smaller cards */
-  height: 200px; /* Reduced card height */
+  max-width: 300px;
+  height: 200px;
   text-align: center;
   color: whitesmoke;
-  background-color: whitesmoke;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1), 0 16px 16px rgba(0, 0, 0, 0.1);
-  border-radius: 15px; /* Rounded corners */
-  transition: transform 0.3s ease-in-out; /* Smooth transition */
+  background-color: #fffdf6; /* from basket-container */
+  font-family: 'Calibri', sans-serif; /* from basket-container */
+  border-radius: 16px; /* updated to match basket-container */
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08); /* updated shadow */
+  transition: transform 0.3s ease-in-out;
 }
 
 /* Adjust card size for different screen sizes */
@@ -342,3 +343,47 @@ body {
     transition-duration: 0s;
   }
 }
+
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin: 40px auto 20px;
+  width: 100%;
+}
+
+.search-form {
+  display: flex;
+  width: 90%;
+  max-width: 700px;
+  border-radius: 30px;
+  overflow: hidden;
+  border: 2px solid #34c759;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.search-bar {
+  flex-grow: 1;
+  padding: 15px 20px;
+  font-size: 1.2rem;
+  border: none;
+  outline: none;
+  font-family: 'Calibri', sans-serif;
+}
+
+.search-button {
+  padding: 0 25px;
+  background-color: #34c759;
+  color: white;
+  font-size: 1.1rem;
+  border: none;
+  font-family: Calibri, sans-serif;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.search-button:hover {
+  background-color: #28a745;
+}
+
