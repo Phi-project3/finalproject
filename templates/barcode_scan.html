@@ -9,46 +9,50 @@
 {% endblock %}
 
 {% block content %}
-<div class="center">
-  <h1>Scan Barcode</h1>
-  <div id="reader"></div>
-  <p id="result"></p>
-</div>
+<main>
+    <div id="reader"></div>
+    <div id="result"></div>
+</main>
 {% endblock %}
 
 {% block extra_js %}
   <!-- Include the html5-qrcode library -->
-  <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.4/html5-qrcode.min.js" 
+          integrity="sha512-k/KAe4Yff9EUdYI5/IAHlwUswqeipP+Cp5qnrsUjTPCgl51La2/JhyyjNciztD7mWNKLSXci48m7cctATKfLlQ==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
   <script>
-    // Callback function for a successful scan.
-    function onScanSuccess(decodedText, decodedResult) {
-      console.log("Scan successful:", decodedText);
-      document.getElementById("result").innerText = "Scanned: " + decodedText;
-      window.location.href = "/product/" + encodeURIComponent(decodedText);
-    }
-
-    // Callback function for scan failure.
-    function onScanFailure(errorMessage) {
-      // Optionally log or show the error; this callback is called frequently in normal operation.
-      console.warn("Scan failure: " + errorMessage);
-    }
-
-    // Initialize the scanner on the element with id "reader".
-    const html5QrCode = new Html5Qrcode("reader");
-    // Configuration: 10 frames per second and a 250px square scan area.
-    const config = { fps: 10, qrbox: 250 };
-
-    // Get available cameras and start the scanning process.
-    Html5Qrcode.getCameras().then(devices => {
-      if (devices && devices.length) {
-        const cameraId = devices[0].id;
-        // Pass both success and failure callbacks.
-        html5QrCode.start(cameraId, config, onScanSuccess, onScanFailure);
-      } else {
-        console.error("No cameras found.");
-      }
-    }).catch(err => {
-      console.error("Camera error:", err);
+    // Create an instance of the scanner, tied to the 'reader' element.
+    const scanner = new Html5QrcodeScanner('reader', { 
+        qrbox: { width: 400, height: 250 }, // Dimensions of the scanning box.
+        fps: 30 // Scanning speed.
     });
+
+    // When a barcode is successfully scanned, redirect to the product page.
+    function success(scannedBarcode) {
+        // Optionally, you can log the barcode or display a short message.
+        document.getElementById('result').innerHTML = `
+            <h2>Barcode scanned successfully!</h2>
+            <p>Redirecting to product page...</p>
+        `;
+
+        // Clear the scanner instance and remove the reader element.
+        scanner.clear().then(() => {
+            document.getElementById('reader').remove();
+            // Redirect to your product details route.
+            window.location.href = "/product/" + encodeURIComponent(scannedBarcode);
+        }).catch(err => {
+            console.error("Error clearing scanner:", err);
+        });
+    }
+
+    // Error callback: simply log any scanning errors.
+    function error(errMessage) {
+        console.warn("Scan error: " + errMessage);
+        // You can display an error message if desired.
+    }
+
+    // Start the scanner.
+    scanner.render(success, error);
   </script>
 {% endblock %}
