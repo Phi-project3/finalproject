@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: 'Calibri', sans-serif;
-    background: linear-gradient(to right, #e0f7f1, #ffffff);
+    background: linear-gradient(to right, #f5efe6, #ffffff);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,7 +19,7 @@ body {
 }
 
 .register-left {
-    background-color: #b5eadb;
+    background-color: #c1dfc4;
     color: #2f3e46;
     padding: 40px;
     width: 50%;

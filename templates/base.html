@@ -10,23 +10,19 @@
 
     <body>
         <header>
-
             <div>
                 <img id= "main_image" src="{{ url_for('static', filename='sustainabite_trans.png') }}" alt="Sustainabite Logo">
             </div>
 
             <h1 id="main_title">S U S T A I N A B I T E</h1>
 
-            <h2 id="second_title">oodprinmatter</h2>
+            <h2 id="second_title">oodprinmatter</h2>
 
             <a href="{{ url_for('landing') }}">
                 <button class="buttons">🏠 Home</button>
             </a>
 
-            <form action="{{ url_for('search') }}" method="POST" style="display: inline-block;">
-                <input type="text" name="search_term" placeholder="Looking for some product?" required>
-                <button class="buttons" type="submit">🔎 Search</button>
-            </form>
+
 
             <a href="{{ url_for('scan') }}">
                 <button class="buttons">📷 Scan Me!</button>
@@ -59,9 +55,7 @@
 
         <main style="margin: 20px;">
             {% block content %}
-
             <!-- Child templates will insert their content here -->
-
             {% endblock %}
         </main>
 
@@ -71,6 +65,10 @@
             </p>
         </footer>
         
-        <script src="{{ url_for('static', filename='basket.js') }}"></script> 
+        <!-- Base JavaScript -->
+        <script src="{{ url_for('static', filename='basket.js') }}"></script>
+        
+        <!-- Additional JavaScript from child templates -->
+        {% block extra_js %}{% endblock %}
     </body>
 </html>
