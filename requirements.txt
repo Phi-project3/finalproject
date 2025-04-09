@@ -4,4 +4,3 @@ SQLAlchemy==2.0.40
 gunicorn==23.0.0
 pyodbc==5.2.0
 Flask-Login==0.6.3
-werkzeug==2.2.0
