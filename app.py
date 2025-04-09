@@ -366,10 +366,6 @@ def add_to_basket():
     
     return jsonify({"success": True})
 
-@app.route('/basket')
-def basket_page():
-    return render_template('basket.html')
-
 @app.route('/api/basket/remove', methods=['POST'])
 def remove_from_basket():
     data = request.get_json()
@@ -391,6 +387,10 @@ def remove_from_basket():
         conn.commit()
 
     return jsonify({"success": True})
+
+@app.route('/basket')
+def basket_page():
+    return render_template('basket.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
