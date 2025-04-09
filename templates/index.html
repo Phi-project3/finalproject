@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -8,14 +7,22 @@
     </head>
 
     <body>
-        <img id= "main_image" src="{{ url_for('static', filename='sustainabite_trans.png') }}" alt="Sustainabite Logo" class="wobble">
+        <img id="main_image" src="{{ url_for('static', filename='sustainabite_trans.png') }}" alt="Sustainabite Logo" class="wobble">
 
         <h1 id="main_title">S U S T A I N A B I T E</h1>
     
         <h2 id="second_title">oodprinmatter</h2>
 
-        <a class="button" href="/landing">ENTER THE APP<span></span></a>
+        <!-- Button container -->
+        <div class="button-container">
+            <a class="button" href="/landing">ENTER THE APP<span></span></a>
+            <a class="button" href="{{ url_for('login') }}">LOG IN</a>
+        </div>
+
         <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-        <script src='https://s.codepen.io/assets/libs/modernizr.js'></script><script  src="{{ url_for('static', filename='script_index.js') }}"></script>
+        <script src='https://s.codepen.io/assets/libs/modernizr.js'></script>
+        <script  src="{{ url_for('static', filename='script_index.js') }}"></script>
     </body>
 </html>
+
+
