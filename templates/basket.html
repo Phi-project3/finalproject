@@ -32,6 +32,13 @@
         font-size: 1rem;
     }
 
+    .basket-header {
+        font-weight: bold;
+        border-bottom: 2px solid #2e7d32;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+
     .quantity-input {
         width: 60px;
         padding: 5px;
@@ -45,6 +52,7 @@
         border-radius: 6px;
         cursor: pointer;
         font-weight: bold;
+        margin: 0 5px;
     }
 
     .remove-btn {
@@ -55,7 +63,6 @@
     .update-btn {
         background-color: #27ae60;
         color: white;
-        margin-right: 5px;
     }
 
     .total-line {
@@ -63,6 +70,21 @@
         font-weight: bold;
         font-size: 1.2rem;
         text-align: right;
+        color: #2e7d32;
+    }
+
+    .empty-basket {
+        text-align: center;
+        padding: 40px;
+        color: #666;
+        font-size: 1.2rem;
+    }
+
+    .error-message {
+        color: #e74c3c;
+        text-align: center;
+        padding: 20px;
+        font-size: 1.1rem;
     }
 </style>
 {% endblock %}
@@ -70,26 +92,70 @@
 {% block content %}
 <div class="basket-container">
     <h1>🧺 Your Basket</h1>
-    <div id="basket-items"></div>
+    <div id="basket-items">
+        <div class="basket-header basket-item">
+            <div>Product</div>
+            <div>Environmental Score</div>
+            <div>Carbon Footprint</div>
+            <div>Quantity</div>
+            <div>Actions</div>
+        </div>
+    </div>
     <div class="total-line" id="total-carbon">Total Carbon Footprint: 0 kg CO₂e</div>
+    <div style="text-align: right; margin-top: 20px;">
+        <button class="action-btn remove-btn" onclick="emptyBasket()">Empty Basket</button>
+    </div>
 </div>
 {% endblock %}
 
 {% block extra_js %}
 <script>
-    async function loadBasket() {
+// Initialize the basket page
+function initBasketPage() {
+    console.log('Initializing basket page...');
+    loadBasket();
+}
+
+async function loadBasket() {
+    try {
+        console.log('Making request to /api/basket...');
         const response = await fetch('/api/basket');
+        console.log('Response received:', response);
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
         const data = await response.json();
-        const items = data.items;
+        console.log('Basket data:', data);
 
         const container = document.getElementById('basket-items');
-        container.innerHTML = '';
+        if (!container) {
+            console.error('Basket items container not found');
+            return;
+        }
 
+        const headerRow = container.querySelector('.basket-header');
+        container.innerHTML = ''; // Clear existing items
+        container.appendChild(headerRow); // Re-add the header
+
+        if (!data.items || data.items.length === 0) {
+            console.log('No items in basket');
+            const emptyMessage = document.createElement('div');
+            emptyMessage.className = 'empty-basket';
+            emptyMessage.textContent = 'Your basket is empty';
+            container.appendChild(emptyMessage);
+            document.getElementById('total-carbon').textContent = 'Total Carbon Footprint: 0 kg CO₂e';
+            return;
+        }
+
+        console.log(`Processing ${data.items.length} items...`);
         let totalFootprint = 0;
 
-        items.forEach(item => {
-            const subtotal = item.quantity * item.carbonFootprint;
-            totalFootprint += subtotal;
+        data.items.forEach((item, index) => {
+            console.log(`Processing item ${index + 1}:`, item);
+            const itemFootprint = item.quantity * item.carbonFootprint;
+            totalFootprint += itemFootprint;
 
             const div = document.createElement('div');
             div.className = 'basket-item';
@@ -108,32 +174,123 @@
             container.appendChild(div);
         });
 
-        document.getElementById('total-carbon').textContent = `Total Carbon Footprint: ${totalFootprint.toFixed(2)} kg CO₂e`;
+        console.log('Updating total carbon footprint:', totalFootprint);
+        document.getElementById('total-carbon').textContent = 
+            `Total Carbon Footprint: ${totalFootprint.toFixed(2)} kg CO₂e`;
+    } catch (error) {
+        console.error('Error loading basket:', error);
+        const container = document.getElementById('basket-items');
+        container.innerHTML = `
+            <div class="error-message">
+                Sorry, there was an error loading your basket. Please try again later.<br>
+                Error: ${error.message}
+            </div>
+        `;
     }
+}
 
-    async function updateItem(barcode) {
+async function updateItem(barcode) {
+    try {
+        console.log('Updating item:', barcode);
         const input = document.querySelector(`input[data-barcode="${barcode}"]`);
         const quantity = parseInt(input.value);
+        
+        if (isNaN(quantity) || quantity < 1) {
+            alert('Please enter a valid quantity');
+            return;
+        }
 
-        await fetch('/api/basket/add', {
+        const response = await fetch('/api/basket/add', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ barcode, quantity })
         });
 
-        loadBasket();
-    }
+        if (!response.ok) {
+            throw new Error('Failed to update item');
+        }
 
-    async function removeItem(barcode) {
-        await fetch('/api/basket/remove', {
+        const data = await response.json();
+        if (data.success) {
+            console.log('Item updated successfully');
+            loadBasket();
+            if (window.updateBasketCount) {
+                window.updateBasketCount();
+            }
+        } else {
+            throw new Error(data.error || 'Failed to update item');
+        }
+    } catch (error) {
+        console.error('Error updating item:', error);
+        alert(error.message);
+    }
+}
+
+async function removeItem(barcode) {
+    try {
+        console.log('Removing item:', barcode);
+        const response = await fetch('/api/basket/remove', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ barcode })
         });
 
-        loadBasket();
+        if (!response.ok) {
+            throw new Error('Failed to remove item');
+        }
+
+        const data = await response.json();
+        if (data.success) {
+            console.log('Item removed successfully');
+            loadBasket();
+            if (window.updateBasketCount) {
+                window.updateBasketCount();
+            }
+        } else {
+            throw new Error(data.error || 'Failed to remove item');
+        }
+    } catch (error) {
+        console.error('Error removing item:', error);
+        alert(error.message);
+    }
+}
+
+async function emptyBasket() {
+    if (!confirm('Are you sure you want to empty your basket?')) {
+        return;
     }
 
-    loadBasket();
+    try {
+        const response = await fetch('/api/basket/empty', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to empty basket');
+        }
+
+        const data = await response.json();
+        if (data.success) {
+            loadBasket();
+            if (window.updateBasketCount) {
+                window.updateBasketCount();
+            }
+        } else {
+            throw new Error(data.error || 'Failed to empty basket');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Failed to empty basket: ' + error.message);
+    }
+}
+
+// Initialize the page when the DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, initializing basket page...');
+    initBasketPage();
+});
 </script>
 {% endblock %}
