@@ -202,7 +202,7 @@ def query_chocolate():
 
         records = [dict(row._mapping) for row in result.fetchall()]
         
-    return render_template('results.html', records=records)
+    return render_template('query_search.html', records=records, term='chocolate')
 
 @app.route('/query-alcohol')
 def query_alcohol():
@@ -215,7 +215,7 @@ def query_alcohol():
 
         records = [dict(row._mapping) for row in result.fetchall()]
         
-    return render_template('results.html', records=records)
+    return render_template('query_search.html', records=records, term='alcohol')
 
 
 @app.route('/query-canned-food')
@@ -229,7 +229,7 @@ def query_canned_food():
 
         records = [dict(row._mapping) for row in result.fetchall()]
         
-    return render_template('results.html', records=records)
+    return render_template('query_search.html', records=records, term='canned food')
 
 
 @app.route('/query-cheese')
@@ -243,7 +243,7 @@ def query_cheese():
 
         records = [dict(row._mapping) for row in result.fetchall()]
         
-    return render_template('results.html', records=records)
+    return render_template('query_search.html', records=records, term='cheese')
 
 @app.route('/query-fruit')
 def query_fruit():
@@ -256,7 +256,7 @@ def query_fruit():
 
         records = [dict(row._mapping) for row in result.fetchall()]
         
-    return render_template('results.html', records=records)
+    return render_template('query_search.html', records=records, term='fruit')
 
 @app.route('/query-ice-cream')
 def query_ice_cream():
@@ -269,7 +269,7 @@ def query_ice_cream():
 
         records = [dict(row._mapping) for row in result.fetchall()]
         
-    return render_template('results.html', records=records)
+    return render_template('query_search.html', records=records, term='ice scream')
 
 @app.route('/query-meat')
 def query_meat():
@@ -282,7 +282,7 @@ def query_meat():
 
         records = [dict(row._mapping) for row in result.fetchall()]
         
-    return render_template('results.html', records=records)
+    return render_template('query_search.html', records=records, term='meat')
 
 @app.route('/query-milk')
 def query_milk():
@@ -295,7 +295,7 @@ def query_milk():
 
         records = [dict(row._mapping) for row in result.fetchall()]
         
-    return render_template('results.html', records=records)
+    return render_template('query_search.html', records=records, term='milk')
 
 @app.route('/teamphi')
 def page3():
