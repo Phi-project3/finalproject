@@ -84,7 +84,7 @@ a {
   position: absolute;
   top: 20px;
   right: 30px;
-  background-color: #34c759;
+  background: linear-gradient(180deg, #3EB489, #62D28F);
   font-family: Calibri;
   color: white;
   padding: 10px 15px;
@@ -96,12 +96,18 @@ a {
   align-items: center;
   gap: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.2s ease-in-out;
+  transition: background 0.3s ease, transform 0.2s ease;
   z-index: 999;
 }
 
 .basket-button:hover {
-  background-color: #28a745;
+  background: linear-gradient(180deg, #74E193, #98FF99);
+  transform: translateY(-2px);
+}
+
+
+.basket-button:active {
+  transform: translateY(0);
 }
 
 .basket-icon {

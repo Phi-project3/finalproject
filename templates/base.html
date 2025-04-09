@@ -55,7 +55,7 @@
 
         <main style="margin: 20px;">
             {% block content %}
-            <!-- Child templates will insert their content here -->
+                <!-- Child templates will insert their content here -->
             {% endblock %}
         </main>
 
@@ -68,7 +68,9 @@
         <!-- Base JavaScript -->
         <script src="{{ url_for('static', filename='basket.js') }}"></script>
         
-        <!-- Additional JavaScript from child templates -->
-        {% block extra_js %}{% endblock %}
+        
+        {% block extra_js %}
+            <!-- Additional JavaScript from child templates -->
+        {% endblock %}
     </body>
 </html>
