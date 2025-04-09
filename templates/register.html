@@ -1,21 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Register - Sustainabite</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='register_style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;600&display=swap" rel="stylesheet">    
+
 </head>
 <body>
-    <h2>Register</h2>
-    <form method="POST">
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" required>
+    <div class="register-wrapper">
+        <div class="register-left">
+            <img src="{{ url_for('static', filename='sustainabite_trans.png') }}" alt="Sustainabite logo" class="logo" />
+            <h1>Join Sustainabite</h1>
+            <p>Register to unlock full access:</p>
+            
+            <!-- Add class="benefits-list" here -->
+            <ul class="benefits-list">
+                <li>🍃 Track sustainable products</li>
+                <li>🍃 Save items in your basket</li>
+                <li>🍃 Get personalized eco-tips</li>
+                <li>🍃 Secure login experience</li>
+            </ul>
+        </div>
 
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required>
+        <div class="register-right">
+            <h2>Create Account</h2>
+            <form method="POST">
+                <label for="username">Enter Username</label>
+                <input type="text" id="username" name="username" required>
 
-        <button type="submit">Register</button>
-    </form>
-    <p>Already have an account? <a href="{{ url_for('login') }}">Login here</a></p>
+                <label for="password">Enter Password</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Register</button>
+            </form>
+            <p class="login-link">Already have an account? <a href="{{ url_for('login') }}">Log in</a></p>
+        </div>
+    </div>
 </body>
 </html>
+

@@ -415,5 +415,13 @@ def remove_from_basket():
 def basket_page():
     return render_template('basket.html')
 
+
+@app.route('/user-profile')
+@login_required
+def user_profile():
+    return render_template('user_profile.html', user=current_user)
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)
