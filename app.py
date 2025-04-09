@@ -392,24 +392,16 @@ def get_basket():
             items = []
             for row in rows:
                 try:
-                    # Handle 'environmental score' which may be numeric, None, or "No information available"
                     env_score_val = row[3]
-                    if env_score_val is None:
-                        environment_score = 0.0
-                    elif isinstance(env_score_val, (int, float)):
-                        environment_score = float(env_score_val)
-                    elif (
-                        isinstance(env_score_val, str) 
-                        and env_score_val.lower() == "no information available"
-                    ):
-                        # Substituting 0 if there's "No information available"
+
+                    if env_score_val == "No information available":
                         environment_score = 0.0
                     else:
-                        # Some other string or unexpected type
-                        environment_score = 0.0
+                        pass
 
-                    # Handle carbon footprint similarly
+
                     carbon_val = row[4]
+
                     if carbon_val is None:
                         carbon_footprint = 0.0
                     elif isinstance(carbon_val, (int, float)):
