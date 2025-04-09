@@ -40,6 +40,20 @@
                 <span id="basket-count" class="basket-count">0</span>
                 <span>Basket</span>
             </a>
+            
+            {% if current_user.is_authenticated %}
+                <a href="{{ url_for('user_profile') }}">
+                    <button class="buttons">👤 Profile</button>
+                </a>
+                <a href="{{ url_for('logout') }}">
+                    <button class="buttons"> Logout</button>
+                </a>
+            {% else %}
+                <a href="{{ url_for('login') }}">
+                    <button class="buttons"> Login</button>
+                </a>
+            {% endif %}
+
         </header>
 
         <main style="margin: 20px;">

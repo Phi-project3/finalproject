@@ -571,6 +571,7 @@ def empty_basket():
 def basket_page():
     return render_template('basket.html')
 
+
 @app.route('/api/basket/count', methods=['GET'])
 def get_basket_count():
     try:
@@ -688,6 +689,15 @@ def debug_check_products():
     finally:
         cursor.close()
         conn.close()
+
+
+@app.route('/user-profile')
+@login_required
+def user_profile():
+    return render_template('user_profile.html', user=current_user)
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
