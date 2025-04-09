@@ -1,3 +1,4 @@
+
 @import url("https://fonts.googleapis.com/css?family=Cardo:400i|Rubik:400,700&display=swap");
 :root {
   --d: 700ms;
@@ -27,7 +28,44 @@
   font-style: normal;
 }
 
+.basket-button {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background-color: #34c759;
+  font-family: Calibri;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: lighter;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s ease-in-out;
+  z-index: 999;
+}
 
+.basket-button:hover {
+  background-color: #28a745;
+}
+
+.basket-icon {
+  font-size: 20px;
+}
+
+.basket-count {
+  background-color: red;
+  font-family: Calibri;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+/* General styles */
 
 * {
   box-sizing: border-box;
@@ -51,7 +89,7 @@
 }
 
 #main_1 {
-  font-family: 'Signature', Calibiri;
+  font-family: 'Signature', Calibri;
   font-size: 4em;
   font-weight: normal;
   margin-bottom: 10px;
@@ -64,19 +102,15 @@
   font-size: 1.2em;
 }
 
-#main_3
-{
+#main_3 {
   font-family: 'Signature';
   font-size: 2.4em;
 }
-
-
 
 a {
   text-decoration: none;
   font-style: italic;
 }
-
 
 body {
   font-family: Arial, sans-serif;
@@ -91,6 +125,7 @@ body {
   margin: 0 auto;
   font-family: var(--font-sans);
 }
+
 @media (min-width: 300px) {
   .page-content {
     grid-template-columns: repeat(1, 1fr);
@@ -102,10 +137,21 @@ body {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
 @media (min-width: 800px) {
   .page-content {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
+}
+
+.card-link {
+  display: block; /* Make the anchor tag take up the entire card */
+  width: 100%; /* Ensure the link spans the entire card */
+  height: 100%; /* Ensure the link spans the entire card */
+  position: absolute; /* Make it fill the card's space */
+  top: 0;
+  left: 0;
+  text-decoration: none; /* Remove underline from the link */
 }
 
 .card {
@@ -115,108 +161,90 @@ body {
   overflow: hidden;
   padding: 1rem;
   width: 100%;
+  max-width: 300px; /* Set a max-width for smaller cards */
+  height: 200px; /* Reduced card height */
   text-align: center;
   color: whitesmoke;
   background-color: whitesmoke;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1), 0 16px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 15px; /* Rounded corners */
+  transition: transform 0.3s ease-in-out; /* Smooth transition */
 }
 
+/* Adjust card size for different screen sizes */
 @media (min-width: 300px) {
   .card {
-    height: 150px;
+    height: 200px; /* Smaller card height */
+    max-width: 250px; /* Max-width for smaller cards */
   }
 }
 
 @media (min-width: 600px) {
   .card {
-    height: 350px;
+    height: 250px; /* Slightly larger card height */
+    max-width: 300px; /* Max-width for medium screens */
   }
 }
 
+@media (min-width: 800px) {
+  .card {
+    height: 300px; /* Larger card height for large screens */
+    max-width: 350px; /* Max-width for large screens */
+  }
+}
+
+/* Center the background image */
 .card:before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 110%;
+  height: 100%; /* Ensure the image covers the entire card */
   background-size: cover;
-  background-position: 0 0;
+  background-position: center; /* Center the image */
   transition: transform calc(var(--d) * 1.5) var(--e);
   pointer-events: none;
+  border-radius: 15px; /* Ensure the background image has rounded corners too */
 }
 
-.card:after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 200%;
-  pointer-events: none;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.009) 11.7%, rgba(0, 0, 0, 0.034) 22.1%, rgba(0, 0, 0, 0.072) 31.2%, rgba(0, 0, 0, 0.123) 39.4%, rgba(0, 0, 0, 0.182) 46.6%, rgba(0, 0, 0, 0.249) 53.1%, rgba(0, 0, 0, 0.32) 58.9%, rgba(0, 0, 0, 0.394) 64.3%, rgba(0, 0, 0, 0.468) 69.3%, rgba(0, 0, 0, 0.54) 74.1%, rgba(0, 0, 0, 0.607) 78.8%, rgba(0, 0, 0, 0.668) 83.6%, rgba(0, 0, 0, 0.721) 88.7%, rgba(0, 0, 0, 0.762) 94.1%, rgba(0, 0, 0, 0.79) 100%);
-  transform: translateY(-50%);
-  transition: transform calc(var(--d) * 2) var(--e);
-}
-
+/* Image backgrounds for each card */
 .card:nth-child(1):before {
-  background-image: url("./chocolate.jpg");
+  background-image: url("./beer.png");
 }
 .card:nth-child(2):before {
-  background-image: url("./chocolate_1.jpg");
+  background-image: url("./cannedfoods .png");
 }
 .card:nth-child(3):before {
-  background-image: url("./chocolate_3.jpg");
+  background-image: url("./cheese .png");
 }
 .card:nth-child(4):before {
-  background-image: url("./chocolate_5.jpg");
+  background-image: url("./chocolate.png");
 }
 .card:nth-child(5):before {
-  background-image: url("./chocolate_6.jpg");
+  background-image: url("./fruit.png");
 }
 .card:nth-child(6):before {
-  background-image: url("./chocolate_7.jpg");
+  background-image: url("./icecream.png");
 }
 .card:nth-child(7):before {
-  background-image: url("./chocolate_8.jpg");
+  background-image: url("./meat.png");
 }
 .card:nth-child(8):before {
-  background-image: url("./chocolate_12.jpg");
-}
-.card:nth-child(9):before {
-  background-image: url("./chocolate_1.jpg");
-}
-.card:nth-child(10):before {
-  background-image: url("./chocolate_11.jpg");
-}
-.card:nth-child(11):before {
-  background-image: url("./chocolate_9.jpg");
-}
-.card:nth-child(12):before {
-  background-image: url("./chocolate_13.jpg");
-}
-.card:nth-child(13):before {
-  background-image: url("./chocolate_1.jpg");
-}
-.card:nth-child(14):before {
-  background-image: url("./chocolate_15.jpg");
-}
-.card:nth-child(15):before {
-  background-image: url("./chocolate_10.jpg");
+  background-image: url("./milk.png");
 }
 
-
+/* Position the title at the bottom of the card */
 .content {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  padding: 1rem;
-  transition: transform var(--d) var(--e);
-  z-index: 1;
+  position: absolute;
+  bottom: 10px; /* Push content to the bottom */
+  left: 50%;
+  transform: translateX(-50%); /* Center it horizontally */
+  text-align: center;
+  color: #403a3a; /* Lighter than black (dark gray color) */
+  padding: 0 10px; /* Add some padding to prevent the text from touching the card edges */
 }
+
 .content > * + * {
   margin-top: 1rem;
 }
@@ -225,6 +253,7 @@ body {
   font-size: 1.3rem;
   font-weight: bold;
   line-height: 1.2;
+  color: rgb(69, 50, 12);  
 }
 
 .copy {
@@ -246,14 +275,17 @@ body {
   background-color: black;
   border: none;
 }
+
 .btn:hover {
   background-color: #0d0d0d;
 }
+
 .btn:focus {
   outline: 1px dashed yellow;
   outline-offset: 3px;
 }
 
+/* Hover effect and animation */
 @media (hover: hover) and (min-width: 600px) {
   .card:after {
     transform: translateY(0);
@@ -262,38 +294,44 @@ body {
   .content {
     transform: translateY(calc(100% - 4.5rem));
   }
+
   .content > *:not(.title) {
     opacity: 0;
     transform: translateY(1rem);
     transition: transform var(--d) var(--e), opacity var(--d) var(--e);
   }
 
-  .card:hover,
-.card:focus-within {
-    align-items: center;
+  .card:hover {
+    transform: scale(1.05); /* Slightly enlarge card on hover */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Add a stronger shadow on hover */
   }
+
   .card:hover:before,
-.card:focus-within:before {
+  .card:focus-within:before {
     transform: translateY(-4%);
   }
+
   .card:hover:after,
-.card:focus-within:after {
+  .card:focus-within:after {
     transform: translateY(-50%);
   }
+
   .card:hover .content,
-.card:focus-within .content {
+  .card:focus-within .content {
     transform: translateY(0);
   }
+
   .card:hover .content > *:not(.title),
-.card:focus-within .content > *:not(.title) {
+  .card:focus-within .content > *:not(.title) {
     opacity: 1;
     transform: translateY(0);
     transition-delay: calc(var(--d) / 8);
   }
 
-  .card:focus-within:before, .card:focus-within:after,
-.card:focus-within .content,
-.card:focus-within .content > *:not(.title) {
+  .card:focus-within:before,
+  .card:focus-within:after,
+  .card:focus-within .content,
+  .card:focus-within .content > *:not(.title) {
     transition-duration: 0s;
   }
 }
