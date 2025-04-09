@@ -75,21 +75,24 @@ def test():
 def scan():
     return render_template('barcode_scan.html')
 
-@app.route('/search', methods=['POST'])
+@app.route('/search', methods=['GET'])
 def search():
-    search_term = request.form.get('search_term')
+    search_term = request.args.get('query')  # Fetch search term from the query parameter
 
-    query = text("""
-                 SELECT *
-                 FROM [dbo].[sustainabite]
-                 WHERE "Product name" LIKE :term
-                 """)
+    if search_term:
+        query = text("""
+            SELECT *
+            FROM [dbo].[sustainabite]
+            WHERE "Product name" LIKE :term
+        """)
 
-    with engine.connect() as connection:
-        result = connection.execute(query, {"term": f"%{search_term}%"})
+        with engine.connect() as connection:
+            result = connection.execute(query, {"term": f"%{search_term}%"})
 
-        records = [dict(row._mapping) for row in result.fetchall()]
-        
+            records = [dict(row._mapping) for row in result.fetchall()]
+    else:
+        records = []
+
     return render_template('search.html', records=records, search_term=search_term)
 
 @app.route('/about')

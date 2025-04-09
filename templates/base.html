@@ -23,10 +23,7 @@
                 <button class="buttons">🏠 Home</button>
             </a>
 
-            <form action="{{ url_for('search') }}" method="POST" style="display: inline-block;">
-                <input type="text" name="search_term" placeholder="Looking for some product?" required>
-                <button class="buttons" type="submit">🔎 Search</button>
-            </form>
+
 
             <a href="{{ url_for('scan') }}">
                 <button class="buttons">📷 Scan Me!</button>
