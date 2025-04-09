@@ -218,6 +218,7 @@ def query_alcohol():
     return render_template('query_search.html', records=records, term='alcohol')
 
 
+
 @app.route('/query-canned-food')
 def query_canned_food():
     with engine.connect() as connection:
