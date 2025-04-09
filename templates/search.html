@@ -23,15 +23,19 @@
                 {% if records %}
 
                     {% for record in records %}
-                        
-                        <h2 class="square">{{ record["Product name"] }}</h3>
+
+                        <a href="{{ url_for('product_details', code=record['Barcode']) }}">
+
+                            <h2 class="square">{{ record["Product name"] }}</h2>
+
+                        </a>
 
                     {% endfor %}
 
                 {% else %}
-
-                    <h1 id="no_results">No results found 😭 <br> I'm gonna cry...</h1>
-
+                
+                        <h2 id="no_results">No results found 😭 <br> I'm gonna cry...</h2>
+                    
                 {% endif %}
             </div>
 

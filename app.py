@@ -56,6 +56,28 @@ def search():
         
     return render_template('search.html', records=records, search_term=search_term)
 
+@app.route('/product/<code>')
+def product_details(code):
+
+    query = text("""
+                 SELECT *
+                 FROM [dbo].[sustainabite]
+                 WHERE Barcode = :code
+                 """)
+    
+    with engine.connect() as connection:
+        result = connection.execute(query, {"code": code})
+
+        product = result.fetchone()
+        
+        if product:
+            product = dict(product._mapping)
+        else:
+            product = None
+
+    return render_template('product_details.html', product=product)
+
+
 @app.route('/about')
 def about():
     return render_template('about.html')
