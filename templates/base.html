@@ -10,14 +10,13 @@
 
     <body>
         <header>
-
             <div>
                 <img id= "main_image" src="{{ url_for('static', filename='sustainabite_trans.png') }}" alt="Sustainabite Logo">
             </div>
 
             <h1 id="main_title">S U S T A I N A B I T E</h1>
 
-            <h2 id="second_title">oodprinmatter</h2>
+            <h2 id="second_title">oodprinmatter</h2>
 
             <a href="{{ url_for('landing') }}">
                 <button class="buttons">🏠 Home</button>
@@ -37,18 +36,15 @@
             </a>
 
             <a href="/basket" class="basket-button">
-                <span class="basket-icon">🧺</span> <!-- can also be replaced 🛒 with 🧺 -->
+                <span class="basket-icon">🧺</span>
                 <span id="basket-count" class="basket-count">0</span>
                 <span>Basket</span>
             </a>
-
         </header>
 
         <main style="margin: 20px;">
             {% block content %}
-
             <!-- Child templates will insert their content here -->
-
             {% endblock %}
         </main>
 
@@ -58,6 +54,10 @@
             </p>
         </footer>
         
-        <script src="{{ url_for('static', filename='basket.js') }}"></script> 
+        <!-- Base JavaScript -->
+        <script src="{{ url_for('static', filename='basket.js') }}"></script>
+        
+        <!-- Additional JavaScript from child templates -->
+        {% block extra_js %}{% endblock %}
     </body>
 </html>
