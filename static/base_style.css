@@ -101,7 +101,7 @@ a {
 }
 
 .basket-button:hover {
-  background: linear-gradient(180deg, #6aa84f, #93c47d);
+  background: linear-gradient(180deg, #74E193, #98FF99);
   transform: translateY(-2px);
 }
 
@@ -179,21 +179,4 @@ input {
 
 .buttons:active {
   transform: translateY(0);
-}
-
-#sustainable-score-image {
-  text-align: center; /* Center any inline elements in this container */
-}
-
-#sustainabilityImage {
-  width: 150px;
-  display: flex;
-  margin: 0 auto;
-}
-
-#sustainability_all {
-  width: 200px;
-  display: flex;
-  margin: 0 auto;
-  padding-top: 20px;
 }

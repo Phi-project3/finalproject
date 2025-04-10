@@ -100,7 +100,7 @@
     <div id="basket-items">
         <div class="basket-header basket-item">
             <div>Product</div>
-            <div>Sustainable footprint score</div>
+            <div>Sustainability footprint score</div>
             <div>Carbon Footprint</div>
             <div>Quantity</div>
             <div>Actions</div>
@@ -154,7 +154,7 @@ async function loadBasket() {
             emptyMessage.textContent = 'Your basket is empty';
             container.appendChild(emptyMessage);
             document.getElementById('total-carbon').textContent = 'Total Carbon Footprint: 0 kg CO₂e';
-            document.getElementById('avg-sustainable-score').textContent = 'Your Basket Sustainable Footprint Score: 0';
+            document.getElementById('avg-sustainable-score').textContent = 'Your Basket Sustainability Footprint Score: 0';
             // Update sustainability image with score 0
             displaySustainabilityImage(0);
             return;
