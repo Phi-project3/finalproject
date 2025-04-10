@@ -337,7 +337,7 @@ body {
 
 .search-button {
   padding: 0 25px;
-  background-color: #6aa84f;
+  background: linear-gradient(180deg, #6aa84f, #93c47d);
   color: white;
   font-size: 1.1rem;
   border: none;
@@ -347,6 +347,6 @@ body {
 }
 
 .search-button:hover {
-  background-color: #93c47d;
+  background: linear-gradient(180deg, #74E193, #98FF99);
 }
 
