@@ -83,7 +83,7 @@ a {
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: Calibri, sans-serif;
   text-align: center;
 }
 
@@ -321,7 +321,7 @@ body {
   max-width: 700px;
   border-radius: 30px;
   overflow: hidden;
-  border: 2px solid #34c759;
+  border: 2px solid #c9bfaf;
   background-color: #fff;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
@@ -337,7 +337,7 @@ body {
 
 .search-button {
   padding: 0 25px;
-  background-color: #34c759;
+  background-color: #6aa84f;
   color: white;
   font-size: 1.1rem;
   border: none;
@@ -347,6 +347,6 @@ body {
 }
 
 .search-button:hover {
-  background-color: #28a745;
+  background-color: #93c47d;
 }
 

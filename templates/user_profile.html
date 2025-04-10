@@ -3,13 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Your Profile</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='profile_style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='user_profile_style.css') }}">
 </head>
 <body>
-    <h1>Hello, {{ user.username }}! 👋</h1>
-    <p>Welcome to your profile page.</p>
-
-    <!-- Add more user info or preferences here later -->
+    <div class="container">
+        <h1>Hello, {{ user.username }}! 👋</h1>
+        
+        <!-- New content for sustainability hub -->
+        <section class="profile-intro">
+            <h2>Welcome to your personal sustainability page!</h2>
+            <p class="center-text">Here, you can track your <strong>shopping habits</strong>, view your <strong>sustainability scores</strong>, and <strong>get tips</strong> tailored to help you make more <strong>eco-friendly</strong> choices.</p>
+            <br>    
+            
+            <ul>
+                <li><strong>🍃 Follow your shopping trends</li>
+                <li><strong>🍃 Set your sustainability goals</li>
+                <li><strong>🍃 Get personalized recommendations</li>
+            </ul>
+        </section>
+    </div>
 </body>
 </html>
-
