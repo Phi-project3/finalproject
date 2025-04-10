@@ -28,6 +28,7 @@
 
 html {
   background-color: #f5efe6;
+  background: linear-gradient(to right, #f5efe6, #ffffff);
 }
 
 header {
