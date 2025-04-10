@@ -92,6 +92,11 @@
 {% block content %}
 <div class="basket-container">
     <h1>🧺 Your Basket</h1>
+    <div id="sustainable-score-image" style="text-align: left; margin: 20px 0;">
+
+        <img id="sustainabilityImage" src="" alt="⌛🔄 Loading..." />
+        
+    </div>
     <div id="basket-items">
         <div class="basket-header basket-item">
             <div>Product</div>
@@ -102,10 +107,12 @@
         </div>
     </div>
     <div class="total-line" id="total-carbon">Total Carbon Footprint: 0 kg CO₂e</div>
-    <div class="total-line" id="avg-sustainable-score">Average Sustainable Footprint Score: 0</div>
+    <div class="total-line" id="avg-sustainable-score">Your Basket Sustainable Footprint Score: 0</div>
     <div style="text-align: right; margin-top: 20px;">
         <button class="action-btn remove-btn" onclick="emptyBasket()">Empty Basket</button>
     </div>
+
+    
 </div>
 {% endblock %}
 
@@ -147,7 +154,9 @@ async function loadBasket() {
             emptyMessage.textContent = 'Your basket is empty';
             container.appendChild(emptyMessage);
             document.getElementById('total-carbon').textContent = 'Total Carbon Footprint: 0 kg CO₂e';
-            document.getElementById('avg-sustainable-score').textContent = 'Average Sustainable Footprint Score: 0';
+            document.getElementById('avg-sustainable-score').textContent = 'Your Basket Sustainable Footprint Score: 0';
+            // Update sustainability image with score 0
+            displaySustainabilityImage(0);
             return;
         }
 
@@ -186,7 +195,11 @@ async function loadBasket() {
         const avgSustainableScore = data.items.length > 0 ? (totalSustainableScore / data.items.length).toFixed(2) : 0;
         console.log('Updating average sustainable score:', avgSustainableScore);
         document.getElementById('avg-sustainable-score').textContent = 
-            `Average Sustainable Footprint Score: ${avgSustainableScore}`;
+            `Your Basket Sustainable Footprint Score: ${avgSustainableScore}`;
+
+        // Update the sustainability image based on the computed average score
+        displaySustainabilityImage(Number(avgSustainableScore));
+        
     } catch (error) {
         console.error('Error loading basket:', error);
         const container = document.getElementById('basket-items');
@@ -198,6 +211,35 @@ async function loadBasket() {
         `;
     }
 }
+
+// Function to determine which image to display based on the sustainable score
+function displaySustainabilityImage(score) {
+    let imageFile = '';
+
+    // Determine image based on score ranges.
+    if (score >= 0 && score <= 20) {
+        imageFile = '01.png';
+    } else if (score >= 21 && score <= 40) {
+        imageFile = '02.png';
+    } else if (score >= 41 && score <= 60) {
+        imageFile = '03.png';
+    } else if (score >= 61 && score <= 80) {
+        imageFile = '04.png';
+    } else if (score >= 81 && score <= 100) {
+        imageFile = '05.png';
+    }
+
+    // Set the image source using the static folder URL.
+    // Make sure your images are stored in the "static/images/" folder.
+    const imageElement = document.getElementById('sustainabilityImage');
+    imageElement.src = "{{ url_for('static', filename='images/') }}" + imageFile;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, initializing basket page...');
+    initBasketPage();
+});
+
 
 async function updateItem(barcode) {
     try {
