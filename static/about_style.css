@@ -1,0 +1,569 @@
+@font-face {
+    font-family: 'Sustainabite_members';
+    src: url('./HARRYP__.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+
+#about_title {
+ text-align: center;
+ font-family: 'Pacifico', cursive;
+ color: #2e7d32;
+}
+
+.about_member {
+    text-align: center;
+    font-family: Calibri;
+    font-style: italic;
+}
+
+#about_image {
+    display: inline-block;
+    width: 30px;
+}
+
+#second_about_title {
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    color: #2e7d32;
+    margin-top: 100px;
+}
+
+.team-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1.4em;
+  }
+  
+.team-list li {
+display: inline-block;
+margin-right: 3rem;
+}
+
+.team-list a {
+text-decoration: none; 
+color: #000;
+}
+
+.team-list a img {
+width: 30px;
+vertical-align: middle; 
+margin-left: 0.25rem; 
+}
+
+
+  
+.mariko {
+font-family: 'Sustainabite_members', 'Times New Roman', serif;
+font-size: 1em;
+font-weight: normal;
+}
+
+.milla {
+font-family: 'Sustainabite_members', 'Times New Roman', serif;
+font-size: 1.08em;
+font-weight: normal;
+}
+
+.jonna {
+font-family: 'Sustainabite_members', 'Times New Roman', serif;
+font-size: 1.08em;
+font-weight: normal;
+}
+
+.ilyas {
+font-family: 'Sustainabite_members', 'Times New Roman', serif;
+font-size: 1.15em;
+font-weight: normal;
+}
+
+aside.context {
+text-align: center;
+color: #fff;
+line-height: 1.7;
+}
+aside.context a {
+text-decoration: none;
+color: #fff;
+padding: 3px 0;
+border-bottom: 1px dashed;
+}
+aside.context a:hover {
+border-bottom: 1px solid;
+}
+aside.context .explanation {
+max-width: 700px;
+margin: 6em auto 0;
+}
+
+.main-content {
+text-align: center;
+margin: 8em auto;
+margin-bottom: 30px;
+margin-top: 100px;
+}
+
+.map-base {
+width: 306px;
+height: 600px;
+margin: auto;
+background: url("https://meowlivia.s3.us-east-2.amazonaws.com/codepen/map/9.png") center center/cover;
+position: relative;
+display: inline-block;
+}
+
+.map-flap {
+transform-style: preserve-3d;
+position: absolute;
+width: 100%;
+height: 25%;
+margin: auto;
+left: 0;
+right: 0;
+transition: 0.5s ease;
+top: 25%;
+}
+.map-flap__front, .map-flap__back {
+backface-visibility: hidden;
+width: 100%;
+height: 100%;
+position: absolute;
+}
+.map-flap__back {
+transform: scale(-1) rotateY(180deg);
+}
+.map-flap.flap--1 {
+box-shadow: 0 -1px 6px rgba(97, 83, 73, 0.5);
+}
+.map-flap.flap--1 .map-flap__front {
+background: url("https://meowlivia.s3.us-east-2.amazonaws.com/codepen/map/mini-1.png") center left/cover;
+}
+.map-flap.flap--1 .map-flap__back {
+background: url("https://meowlivia.s3.us-east-2.amazonaws.com/codepen/map/mini-3.png") -3px 0/cover;
+}
+.map-flap.flap--2 {
+box-shadow: 0 1px 6px rgba(97, 83, 73, 0.5);
+top: 50%;
+}
+.map-flap.flap--2 .map-flap__front {
+background: url("https://meowlivia.s3.us-east-2.amazonaws.com/codepen/map/mini-2.png") center left/cover;
+}
+.map-flap.flap--2 .map-flap__back {
+background: url("https://meowlivia.s3.us-east-2.amazonaws.com/codepen/map/mini-4.png") -3px 0/cover;
+}
+
+.map-side {
+height: 600px;
+width: 152px;
+position: absolute;
+transform-style: preserve-3d;
+transition: 0.3s ease;
+}
+.map-side .front,
+.map-side .back {
+width: 100%;
+height: 100%;
+position: absolute;
+background-repeat: no-repeat;
+background-position: left top;
+background-size: cover;
+background-image: var(--image);
+backface-visibility: hidden;
+}
+.map-side .back {
+background-image: url(https://meowlivia.s3.us-east-2.amazonaws.com/codepen/map/back.png);
+}
+
+.map-side {
+top: 0;
+}
+.map-side.side-1 {
+left: 0;
+margin-left: 1.5px;
+}
+.map-side.side-2 {
+left: 50%;
+margin-left: -2px;
+}
+.map-side.side-3 {
+left: 0;
+margin-left: 3px;
+}
+.map-side.side-3 .back {
+transform: rotateY(180deg);
+}
+.map-side.side-4 {
+left: 50%;
+margin-left: -1px;
+}
+.map-side.side-4 .back {
+transform: rotateY(180deg);
+}
+.map-side.side-5 {
+left: 0;
+}
+.map-side.side-5 .back {
+background-image: url("./images/team_phi_1.png");
+}
+.map-side.side-6 {
+left: 50%;
+}
+.map-side.side-6 .front {
+background-size: 99.5%;
+}
+.map-side.side-6 .back {
+background-image: url("./images/team_phi_2.png");
+}
+
+.scroll-name {
+position: absolute;
+bottom: 105px;
+left: -60px;
+width: 150px;
+height: 30px;
+text-align: center;
+background: url("https://meowlivia.s3.us-east-2.amazonaws.com/codepen/map/scroll.svg") center center/cover;
+z-index: 10;
+color: #615349;
+cursor: default;
+opacity: 0;
+}
+.scroll-name p {
+display: inline-block;
+margin: 4px 0 0 15px;
+}
+
+.footstep {
+position: absolute;
+background: #615349;
+width: 6px;
+height: 12px;
+border-radius: 80% 80% 70% 70%/130% 130% 25% 25%;
+z-index: 10;
+opacity: 0;
+}
+.footstep:before {
+content: "";
+position: absolute;
+border-radius: 6px;
+width: 5px;
+height: 5px;
+top: 110%;
+left: 0px;
+background: #615349;
+border-radius: 0 0 100% 100%;
+}
+.footstep.left {
+transform: rotate(5deg);
+}
+.footstep.right {
+transform: rotate(-3deg) translateY(15px) translateX(10px);
+}
+
+/* <<< MILLA >>> */
+
+.footsteps-1 .footstep.left {
+bottom: 100px;
+left: 102px;
+transform: rotate(0deg);
+}
+
+.footsteps-1 .footstep.right {
+bottom: 100px;
+left: 112px;
+transform: rotate(0deg);
+}
+
+.footsteps-1 .scroll-name {
+bottom: 55px;
+left: -25px;
+}
+
+.map-base.active .footsteps-1 .footstep {
+animation: 15s footsteps-1 ease 3s forwards;
+}
+.map-base.active .footsteps-1 .scroll-name {
+animation: 15s scroll-1 ease 3s forwards;
+}
+
+@keyframes footsteps-1 {
+10% {transform: translate(0px, -20px) rotate(0deg);}
+20% {transform: translate(0px, -50px) rotate(0deg);}
+30% {transform: translate(0px, -75px) rotate(-10deg);}
+40% {transform: translate(-10px, -90px) rotate(-20deg);}
+50% {transform: translate(-25px, -100px) rotate(-30deg);}
+60% {transform: translate(-35px, -115px) rotate(-20deg);}
+70% {transform: translate(-38px, -125px) rotate(0deg);}
+90% {transform: translate(-35px, -175px) rotate(10deg);}
+100% {transform: translate(-30px, -185px) rotate(-5deg);}
+}
+
+@keyframes scroll-1 {
+10% {transform: translate(0px, -20px);}
+20% {transform: translate(0px, -50px);}
+30% {transform: translate(0px, -75px);}
+40% {transform: translate(-10px, -90px);}
+50% {transform: translate(-25px, -100px);}
+60% {transform: translate(-35px, -115px);}
+70% {transform: translate(-38px, -125px);}
+90% {transform: translate(-35px, -175px);}
+100% {transform: translate(-30px, -185px);}
+}
+
+/* <<< ILYAS >>> */
+
+.footsteps-2 .footstep.left {
+bottom: 275px;
+left: 380px;
+transform: rotate(-90deg);
+}
+
+.footsteps-2 .footstep.right {
+bottom: 266px;
+left: 382px;
+transform: rotate(-85deg);
+}
+
+.footsteps-2 .scroll-name {
+bottom: 290px;
+left: 360px;
+}
+
+.map-base.active .footsteps-2 .footstep {
+animation: 15s footsteps-2 ease 3.2s forwards;
+}
+
+.map-base.active .footsteps-2 .scroll-name {
+animation: 15s scroll-2 ease 3.2s forwards;
+}
+
+@keyframes footsteps-2 {
+10% {transform: translate(-10px, -2px) rotate(-90deg);}
+20% {transform: translate(-20px, -5px) rotate(-90deg);}
+30% {transform: translate(-60px, -10px) rotate(-90deg);}
+50% {transform: translate(-140px, -20px) rotate(-90deg);}
+60% {transform: translate(-180px, -25px) rotate(-90deg);}
+70% {transform: translate(-230px, -30px) rotate(-90deg);}
+80% {transform: translate(-260px, -36px) rotate(-90deg);}
+90% {transform: translate(-270px, -40px) rotate(-105deg);}
+100% {transform: translate(-286px, -42px) rotate(-115deg);}
+}
+
+@keyframes scroll-2 {
+10% {transform: translate(-10px, -2px);}
+20% {transform: translate(-20px, -5px);}
+30% {transform: translate(-60px, -10px);}
+50% {transform: translate(-140px, -20px);}
+60% {transform: translate(-180px, -25px);}
+70% {transform: translate(-230px, -30px);}
+80% {transform: translate(-260px, -36px);}
+90% {transform: translate(-270px, -40px);}
+100% {transform: translate(-286px, -42px);}
+}
+
+/* <<< JONNA >>> */
+
+.footsteps-3 .footstep.left {
+bottom: 150px;
+left: 18px;
+transform: rotate(35deg);
+}
+
+.footsteps-3 .footstep.right {
+bottom: 150px;
+left: 28px;
+transform: rotate(30deg);
+}
+
+.footsteps-3 .scroll-name {
+bottom: 165px;
+left: -105px;
+}
+
+.map-base.active .footsteps-3 .footstep {
+animation: 15s footsteps-3 ease 3s forwards;
+}
+.map-base.active .footsteps-3 .scroll-name {
+animation: 15s scroll-3 ease 3s forwards;
+}
+
+@keyframes footsteps-3 {
+10% {transform: translate(8px, -15px) rotate(30deg);}
+20% {transform: translate(30px, -45px) rotate(30deg);}
+40% {transform: translate(45px, -100px) rotate(10deg);}
+50% {transform: translate(50px, -125px) rotate(10deg);}
+60% {transform: translate(50px, -135px) rotate(10deg);}
+100% {transform: translate(50px, -155px) rotate(45deg);}
+}
+
+@keyframes scroll-3 {
+10% {transform: translate(8px, -15px);}
+20% {transform: translate(30px, -45px);}
+40% {transform: translate(45px, -100px);}
+50% {transform: translate(50px, -125px);}
+60% {transform: translate(50px, -135px);}
+100% {transform: translate(50px, -155px);}
+}
+
+
+/* <<< MARIKO >>> */
+
+.footsteps-4 .footstep.left {
+bottom: 240px;
+left: 325px;
+transform: rotate(-20deg);
+}
+
+.footsteps-4 .footstep.right {
+bottom: 231px; /* -9 */
+left: 320px; /* -5 */
+transform: rotate(-20deg);
+}
+
+.footsteps-4 .scroll-name {
+bottom: 190px;
+left: 290px;
+}
+
+.map-base.active .footsteps-4 .footstep {
+animation: 15s footsteps-4 ease 3.2s forwards;
+}
+
+.map-base.active .footsteps-4 .scroll-name {
+animation: 15s scroll-4 ease 3.2s forwards;
+}
+
+@keyframes footsteps-4 {
+10% {transform: translate(-4px, -15px) rotate(-20deg);}
+20% {transform: translate(-8px, -25px) rotate(-30deg);}
+30% {transform: translate(-15px,-30px) rotate(-60deg);}
+40% {transform: translate(-35px, -35px) rotate(-70deg);}
+50% {transform: translate(-50px, -37px) rotate(-80deg);}
+80% {transform: translate(-150px, -49px) rotate(-80deg);}
+90% {transform: translate(-189px, -57px) rotate(-80deg);}
+100% {transform: translate(-220px, -60px) rotate(-70deg);}
+}
+
+@keyframes scroll-4 {
+10% {transform: translate(-4px, -15px);}
+20% {transform: translate(-8px, -25px);}
+30% {transform: translate(-15px,-30px);}
+40% {transform: translate(-35px, -35px);}
+50% {transform: translate(-50px, -37px);}
+80% {transform: translate(-150px, -49px);}
+90% {transform: translate(-180px, -54px);}
+100% {transform: translate(-220px, -60px);}
+}
+
+
+
+.instructions {
+text-align: center;
+color: #fff;
+margin-bottom: 65px;
+}
+.instructions p {
+margin-bottom: 8px;
+line-height: 1.3;
+}
+
+.toggle-map {
+border: 2px solid;
+margin: 30px auto 0;
+background: transparent;
+font: 22px "Lobster Two", cursive;
+padding: 8px 30px;
+cursor: pointer;
+position: relative;
+color: rgb(46, 125, 50);
+}
+.toggle-map:before {
+content: "";
+position: absolute;
+width: calc(100% - 8px);
+height: 51px;
+left: 2px;
+top: 2px;
+bottom: 2px;
+border: 2px solid;
+}
+.toggle-map:hover:before {
+width: 100%;
+height: 100%;
+transition: 0.3s ease;
+left: -2px;
+top: -2px;
+right: auto;
+}
+.toggle-map:focus {
+outline: none;
+}
+
+.map-base.active .flap--1 {
+transform: rotateX(180deg);
+transform-origin: top center;
+transition: 0.6s transform 1.5s;
+}
+.map-base.active .flap--2 {
+transform: rotateX(180deg);
+transform-origin: bottom center;
+transition: 0.6s transform 1.8s;
+}
+.map-base.active .side-1 {
+transform-origin: center left;
+transform: rotateY(180deg) skewY(2deg);
+transition: 0.5s all ease-in-out 0.6s;
+}
+.map-base.active .side-1 .front {
+transform: rotateY(180deg);
+}
+.map-base.active .side-2 {
+transform: rotateY(180deg) skewY(-2deg);
+transform-origin: center right;
+transition: 0.5s all ease-in-out 0.6s;
+}
+.map-base.active .side-2 .front {
+transform: rotateY(180deg);
+}
+.map-base.active .side-3 {
+left: -50%;
+transform: skewY(2deg) translateX(-100%);
+top: 8px;
+transition: 0.5s transform ease 0.8s, 0.3s left ease 0.8s, 0.5s top ease 0.8s;
+}
+.map-base.active .side-4 {
+left: 100%;
+transform: skewY(-2deg) translateX(100%);
+top: 8px;
+margin-left: -7px;
+transition: 0.5s transform ease 0.8s, 0.3s left ease 0.8s, 0.5s top ease 0.8s, 0.5s margin ease 0.8s;
+}
+.map-base.active .side-5 {
+left: -100%;
+transform-origin: center left;
+transform: rotateY(180deg);
+transition: 0.5s transform, 0.7s left 0.8s, 0.2s margin 0.8s;
+top: 0px;
+margin-left: 4px;
+}
+.map-base.active .side-5 .front {
+transform: rotateY(180deg);
+transition: 0.1s transform;
+}
+.map-base.active .side-6 {
+left: 150%;
+transform: rotateY(180deg);
+transform-origin: center right;
+margin-left: -8px;
+transition: 0.5s transform 0.3s, 0.7s left 0.8s, 0.5s top 0.8s, 0.5s margin 0.8s;
+}
+.map-base.active .side-6 .front {
+transform: rotateY(180deg);
+transition: 0.1s transform;
+}
+.map-base.active .footstep, .map-base.active .scroll-name {
+opacity: 1;
+transition: 0.5s opacity 2.5s;
+}
