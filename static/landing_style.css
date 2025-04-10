@@ -48,7 +48,8 @@
   font-size: 3em;
   margin: 70px;
   margin-bottom: 20px;
-  text-shadow: 2px 2px 3px rgb(#4d4949);
+  text-shadow: 2px 1px 1.5px rgba(50, 44, 44, 1);
+
 }
 
 #main_text {
@@ -226,7 +227,8 @@ body {
   font-size: 1.3rem;
   font-weight: bold;
   line-height: 1.2;
-  color: rgb(69, 50, 12);  
+  color: rgb(69, 50, 12);
+  text-shadow: 0.7px 1px 1px rgba(50, 44, 44, 0.5);  
 }
 
 .copy {
