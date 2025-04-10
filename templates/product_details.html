@@ -4,6 +4,7 @@
 
 {% block extra_css %}
     <link rel="stylesheet" href="{{ url_for('static', filename='product_style.css') }}">
+
     <style>
         .search-container {
             max-width: 800px;
@@ -112,6 +113,7 @@
             z-index: 1000;
         }
     </style>
+
 {% endblock %}
 
 {% block content %}
@@ -129,7 +131,11 @@
     </div>
 
     <div class="product-container">
+        
+
         <h1 class="product-title">{{ product['Product name'] }}</h1>
+
+        
         
         <div class="detail-row">
             <span class="detail-label">Code:</span>
@@ -149,7 +155,13 @@
         <div class="detail-row">
             <span class="detail-label">Sustainability score:</span>
             <span class="detail-value">{{ product['Sustainable footprint score'] }}</span>
+            <div id="sustainable-score-image" style="text-align: left; margin: 20px 0;">
+                <img id="sustainabilityImage" src="" alt="Sustainability Score Image" />
+            </div>
         </div>
+
+        
+
 
         <button class="add-to-basket-btn" data-barcode="{{ product['Barcode'] }}" onclick="return addToBasket('{{ product['Barcode'] }}')">
             🧺 Add to Basket
@@ -204,6 +216,39 @@
 
         // Prevent default form submission
         return false;
+
     }
+    </script>
+
+    <script>
+
+          // Function to determine which image to display based on the sustainable score
+        function displaySustainabilityImage() {
+        // Convert the sustainable score from the template into a number.
+        var score = parseInt('{{ product["Sustainable footprint score"] }}', 10);
+        var imageFile = '';
+
+        // Determine image based on score ranges.
+        if (score >= 0 && score <= 20) {
+            imageFile = '01.png';
+        } else if (score >= 21 && score <= 40) {
+            imageFile = '02.png';
+        } else if (score >= 41 && score <= 60) {
+            imageFile = '03.png';
+        } else if (score >= 61 && score <= 80) {
+            imageFile = '04.png';
+        } else if (score >= 81 && score <= 100) {
+            imageFile = '05.png';
+        }
+
+        // Set the image source using the static folder URL.
+        // Make sure your images are stored in the "static/images/" folder.
+        var imageElement = document.getElementById('sustainabilityImage');
+        imageElement.src = "{{ url_for('static', filename='images/') }}" + imageFile;
+    }
+
+    // Run the display function when the DOM has fully loaded.
+    window.addEventListener('DOMContentLoaded', displaySustainabilityImage);
+    
 </script>
 {% endblock %}
