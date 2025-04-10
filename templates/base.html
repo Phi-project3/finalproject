@@ -16,20 +16,20 @@
 
             <h1 id="main_title">S U S T A I N A B I T E</h1>
 
-            <h2 id="second_title">oodprinmatter</h2>
+            <h2 id="second_title">foodprint matters</h2>
 
             <a href="{{ url_for('landing') }}">
-                <button class="buttons">🏠 Home</button>
+                <button class="buttons">Home</button>
             </a>
 
 
 
             <a href="{{ url_for('scan') }}">
-                <button class="buttons">📷 Scan Me!</button>
+                <button class="buttons">Scan Me!</button>
             </a>
 
             <a href="{{ url_for('about') }}">
-                <button class="buttons">🤝 About the Team</button>
+                <button class="buttons">About the Team</button>
             </a>
 
             <a href="/basket" class="basket-button">
@@ -47,13 +47,13 @@
                 </a>
             {% else %}
                 <a href="{{ url_for('login') }}">
-                    <button class="buttons">🔑 Login</button>
+                    <button class="buttons">Login</button>
                 </a>
             {% endif %}
 
         </header>
 
-        <main style="margin: 20px;">
+        <main style="margin: 25px;">
             {% block content %}
                 <!-- Child templates will insert their content here -->
             {% endblock %}

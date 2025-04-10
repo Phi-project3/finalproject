@@ -67,7 +67,7 @@ a {
   
 #second_title {
     color: rgb(56, 118, 29);
-    font-family: 'Sustainabite_foodprint';
+    font-family: Calibri;
     font-weight: lighter;
     font-size: 1.8em;
     margin-top: 10px;
@@ -82,16 +82,16 @@ a {
 
 .basket-button {
   position: absolute;
-  top: 20px;
-  right: 30px;
-  background: linear-gradient(180deg, #3EB489, #62D28F);
+  top: 40px;
+  right: 50px;
+  background: linear-gradient(180deg, #6aa84f, #93c47d);
   font-family: Calibri;
   color: white;
   padding: 10px 15px;
   border-radius: 10px;
   text-decoration: none;
   font-weight: lighter;
-  font-size: 16px;
+  font-size: 25px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -101,7 +101,7 @@ a {
 }
 
 .basket-button:hover {
-  background: linear-gradient(180deg, #74E193, #98FF99);
+  background: linear-gradient(180deg, #6aa84f, #93c47d);
   transform: translateY(-2px);
 }
 
@@ -145,25 +145,25 @@ a {
   }
   header {
     border-bottom: 3px dotted;
-    border-color: rgb(8, 171, 8);
+    border-color: rgb(56, 118, 29);
     width: 600px;
     margin: 0 auto; /* centers the div */
   }
 }
 
 .buttons {
-    background: linear-gradient(180deg, #3EB489, #62D28F);
+    background: linear-gradient(180deg, #6aa84f, #93c47d);
     border: none;
     color: white;
     padding: 10px 20px;
-    margin: 3px 3px;
+    margin: 12px 12px;
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.2s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     font-family: Calibri;
-    font-size: 1em;
+    font-size: 2em;
 }
 
 input {
