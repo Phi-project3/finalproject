@@ -6,16 +6,142 @@
         {% extends "base.html" %}
         <title>{% block title %}Barcode Scan{% endblock %}</title>
         {% block extra_css %}
-
+        <link rel="stylesheet" href="{{ url_for('static', filename='about_style.css') }}">
         {% endblock %}
     </head>
 
     <body>
 
         {% block content %}
-
-        <h1 style="text-align: center; padding: 10%;">In Progress...</h1>
         
+        
+        <h1 id="about_title">Brought to you with ❤️ 😢 🫠 🙌 by:</h1>
+
+
+        <h3 id="second_about_title">
+            <ul class="team-list">
+                <li>
+                    <!-- Make the name a link or just text. Here we assume you link to a LinkedIn profile. -->
+                    <a href="https://www.linkedin.com/in/jonnawaddington" target="_blank">
+                    Jonna Waddington
+                    <!-- LinkedIn icon image -->
+                    <img src="{{ url_for('static', filename='linkedin.png') }}" alt="LinkedIn">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/marikoahvenniemi" target="_blank">
+                    Mariko Ahvenniemi
+                    <img src="{{ url_for('static', filename='linkedin.png') }}" alt="LinkedIn">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/millavuojolahti" target="_blank">
+                    Milla Vuojolahti
+                    <img src="{{ url_for('static', filename='linkedin.png') }}" alt="LinkedIn">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/ilyasrehouni" target="_blank">
+                    Ilyas Rehouni
+                    <img src="{{ url_for('static', filename='linkedin.png') }}" alt="LinkedIn">
+                    </a>
+                </li>
+            </ul>
+        </h3>
+
+        <h3 id="second_about_title">Data Engineer & Developement Team</h3>
+        
+
+        <div class="main-content">
+            <div class="map-base">
+                
+                <div class="footsteps footsteps-1">
+                <div class="footstep left"></div>
+                <div class="footstep right"></div>
+                <div class="scroll-name"> 
+                    <p class="milla">Milla Vuojolahti</p>
+                </div>
+                </div>
+        
+                <div class="footsteps footsteps-2">
+                <div class="footstep left"></div>
+                <div class="footstep right"></div>
+                <div class="scroll-name"> 
+                    <p class="ilyas">Ilyas Rehouni</p>
+                </div>
+                </div>
+        
+                <div class="footsteps footsteps-3">
+                <div class="footstep left"></div>
+                <div class="footstep right"></div>
+                <div class="scroll-name">
+                    <p class="jonna">Jonna Waddington</p>
+                </div>
+                </div>
+        
+                <div class="footsteps footsteps-4">
+                <div class="footstep left"></div>
+                <div class="footstep right"></div>
+                <div class="scroll-name">
+                    <p class="mariko">Mariko Ahvenniemi</p>
+                </div>
+                </div>
+        
+                <div class="map-flap flap--1">
+                <div class="map-flap__front"></div>
+                <div class="map-flap__back"></div>
+                </div>
+                <div class="map-flap flap--2">
+                <div class="map-flap__front"></div>
+                <div class="map-flap__back"></div>
+                </div>
+                <div class="map-side side-1">
+                <div class="front"
+                        style="--image: url('https://meowlivia.s3.us-east-2.amazonaws.com/codepen/map/8.png')"></div>
+                <div class="back"></div>
+                </div>
+                <div class="map-side side-2">
+                <div class="front"
+                        style="--image: url('https://meowlivia.s3.us-east-2.amazonaws.com/codepen/map/18.png')"></div>
+                <div class="back"></div>
+                </div>
+                <div class="map-side side-3">
+                <div class="front"
+                        style="--image: url('https://meowlivia.s3.us-east-2.amazonaws.com/codepen/map/7.png')"></div>
+                <div class="back"></div>
+                </div>
+                <div class="map-side side-4">
+                <div class="front"
+                        style="--image: url('https://meowlivia.s3.us-east-2.amazonaws.com/codepen/map/10.png')"></div>
+                </div>
+                <div class="map-side side-5">
+                <div class="front"
+                        style="--image: url('https://meowlivia.s3.us-east-2.amazonaws.com/codepen/map/6.png')"></div>
+                <div class="back"></div>
+                </div>
+                <div class="map-side side-6">
+                <div class="front"
+                        style="--image: url('https://meowlivia.s3.us-east-2.amazonaws.com/codepen/map/11.png')"></div>
+                <div class="back"></div>
+                </div>
+            </div>
+            </div>
+            <div class="instructions">
+            <button class="toggle-map js-toggle">Toggle Sustainabite's Team Credits</button>
+            </div>
+
         {% endblock %}
+
+        {% block extra_js %}
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <!-- <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/artyom.js"></script> -->
+            <script src="./script.js"></script>
+            <script  src="{{ url_for('static', filename='about_script.js') }}"></script>
+
+        {% endblock %}
+        
+
+
     </body>
 </html>

@@ -107,7 +107,7 @@
         </div>
     </div>
     <div class="total-line" id="total-carbon">Total Carbon Footprint: 0 kg CO₂e</div>
-    <div class="total-line" id="avg-sustainable-score">Your Basket Sustainable Footprint Score: 0</div>
+    <div class="total-line" id="avg-sustainable-score">Your Basket Sustainability Footprint Score: 0</div>
     <div style="text-align: right; margin-top: 20px;">
         <button class="action-btn remove-btn" onclick="emptyBasket()">Empty Basket</button>
     </div>
@@ -195,7 +195,7 @@ async function loadBasket() {
         const avgSustainableScore = data.items.length > 0 ? (totalSustainableScore / data.items.length).toFixed(2) : 0;
         console.log('Updating average sustainable score:', avgSustainableScore);
         document.getElementById('avg-sustainable-score').textContent = 
-            `Your Basket Sustainable Footprint Score: ${avgSustainableScore}`;
+            `Your Basket Sustainability Footprint Score: ${avgSustainableScore}`;
 
         // Update the sustainability image based on the computed average score
         displaySustainabilityImage(Number(avgSustainableScore));
