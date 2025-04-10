@@ -42,17 +42,17 @@
 }
 
 #main_category {
-  color: rgb(8, 171, 8);
-  font-family: 'Sustainabite_foodprint';
-  font-weight: lighter;
-  font-size: 5em;
+  color: rgb(#403a3a);
+  font-family: Calibri;
+  font-weight: bolder;
+  font-size: 3em;
   margin: 70px;
   margin-bottom: 20px;
-  text-shadow: 2px 2px 3px rgb(15, 137, 94);
+  text-shadow: 2px 2px 3px rgb(#4d4949);
 }
 
 #main_text {
-  width: 800px;
+  width: 900px;
   text-align: center;
   padding: 20px;
   margin: 0 auto;
@@ -69,12 +69,12 @@
   font-family: Calibri, 'Trebuchet MS', sans-serif;
   padding: 20px;
   font-style: italic;
-  font-size: 1.2em;
+  font-size: 1.5em;
 }
 
 #main_3 {
   font-family: 'Signature';
-  font-size: 2.4em;
+  font-size: 2.6em;
 }
 
 a {
