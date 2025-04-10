@@ -1,8 +1,9 @@
 #main_search_title {
     text-align: center;
     font-family: Calibri;
-    color: rgb(8, 171, 8);
-    font-style: italic;
+    color: #403a3a;
+    font-style: normal;
+    text-shadow: 1px 1px 1px rgba(50, 44, 44, 0.5);
 }
 
 #no_results {

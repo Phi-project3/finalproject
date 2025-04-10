@@ -40,10 +40,10 @@
             
             {% if current_user.is_authenticated %}
                 <a href="{{ url_for('user_profile') }}">
-                    <button class="buttons">👤 Profile</button>
+                    <button class="buttons">Profile</button>
                 </a>
                 <a href="{{ url_for('logout') }}">
-                    <button class="buttons">🏃🚪 Logout</button>
+                    <button class="buttons">Logout</button>
                 </a>
             {% else %}
                 <a href="{{ url_for('login') }}">
