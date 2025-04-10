@@ -101,7 +101,7 @@ a {
 }
 
 .basket-button:hover {
-  background: linear-gradient(180deg, #6aa84f, #93c47d);
+  background: linear-gradient(180deg, #b47f5a, #dfa67c);
   transform: translateY(-2px);
 }
 
