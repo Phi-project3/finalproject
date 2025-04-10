@@ -378,7 +378,7 @@ def get_basket():
                     bi.Barcode,
                     bi.Quantity,
                     s.[Product name],
-                    s.[Environmental score],
+                    s.[Sustainable footprint score],
                     s.[Carbon footprint 1kg]
                 FROM BasketItems bi
                 INNER JOIN [dbo].[sustainabite] s 
@@ -392,13 +392,7 @@ def get_basket():
             items = []
             for row in rows:
                 try:
-                    env_score_val = row[3]
-
-                    if env_score_val == "No information available":
-                        environment_score = 0.0
-                    else:
-                        pass
-
+                    sustainable_score = row[3] if row[3] is not None else 0
 
                     carbon_val = row[4]
 
@@ -418,7 +412,7 @@ def get_basket():
                         "barcode": row[0],
                         "quantity": row[1],
                         "productName": row[2],
-                        "environmentalScore": environment_score,
+                        "sustainableFootprintScore": sustainable_score,
                         "carbonFootprint": carbon_footprint
                     }
                     print(f"DEBUG: Created item: {item}")
@@ -687,7 +681,7 @@ def debug_check_products():
         
         for barcode in barcodes:
             cursor.execute("""
-                SELECT [Product name], [Environmental score], [Carbon footprint 1kg]
+                SELECT [Product name], [Sustainable footprint score], [Carbon footprint 1kg]
                 FROM [dbo].[sustainabite]
                 WHERE Barcode = ?
             """, (barcode,))

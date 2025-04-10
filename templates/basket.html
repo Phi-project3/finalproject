@@ -95,13 +95,14 @@
     <div id="basket-items">
         <div class="basket-header basket-item">
             <div>Product</div>
-            <div>Environmental Score</div>
+            <div>Sustainable footprint score</div>
             <div>Carbon Footprint</div>
             <div>Quantity</div>
             <div>Actions</div>
         </div>
     </div>
     <div class="total-line" id="total-carbon">Total Carbon Footprint: 0 kg CO₂e</div>
+    <div class="total-line" id="avg-sustainable-score">Average Sustainable Footprint Score: 0</div>
     <div style="text-align: right; margin-top: 20px;">
         <button class="action-btn remove-btn" onclick="emptyBasket()">Empty Basket</button>
     </div>
@@ -146,22 +147,25 @@ async function loadBasket() {
             emptyMessage.textContent = 'Your basket is empty';
             container.appendChild(emptyMessage);
             document.getElementById('total-carbon').textContent = 'Total Carbon Footprint: 0 kg CO₂e';
+            document.getElementById('avg-sustainable-score').textContent = 'Average Sustainable Footprint Score: 0';
             return;
         }
 
         console.log(`Processing ${data.items.length} items...`);
         let totalFootprint = 0;
+        let totalSustainableScore = 0;
 
         data.items.forEach((item, index) => {
             console.log(`Processing item ${index + 1}:`, item);
             const itemFootprint = item.quantity * item.carbonFootprint;
             totalFootprint += itemFootprint;
+            totalSustainableScore += parseFloat(item.sustainableFootprintScore || 0);
 
             const div = document.createElement('div');
             div.className = 'basket-item';
             div.innerHTML = `
                 <div><strong>${item.productName}</strong></div>
-                <div>${item.environmentalScore}</div>
+                <div>${item.sustainableFootprintScore}</div>
                 <div>${item.carbonFootprint} kg CO₂e</div>
                 <div>
                     <input type="number" class="quantity-input" value="${item.quantity}" min="1" data-barcode="${item.barcode}">
@@ -177,6 +181,12 @@ async function loadBasket() {
         console.log('Updating total carbon footprint:', totalFootprint);
         document.getElementById('total-carbon').textContent = 
             `Total Carbon Footprint: ${totalFootprint.toFixed(2)} kg CO₂e`;
+        
+        // Calculate and display average sustainable score
+        const avgSustainableScore = data.items.length > 0 ? (totalSustainableScore / data.items.length).toFixed(2) : 0;
+        console.log('Updating average sustainable score:', avgSustainableScore);
+        document.getElementById('avg-sustainable-score').textContent = 
+            `Average Sustainable Footprint Score: ${avgSustainableScore}`;
     } catch (error) {
         console.error('Error loading basket:', error);
         const container = document.getElementById('basket-items');
